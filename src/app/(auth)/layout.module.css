@@ -1,0 +1,181 @@
+/* ================================================
+   Auth Layout — Split-Screen Premium
+   Mobile: centered card
+   Desktop: Brand panel left + Form right
+   ================================================ */
+
+.authWrapper {
+  display: flex;
+  align-items: stretch;
+  min-height: 100vh;
+  background: #070D1F;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Left Brand Panel (Desktop Only) ── */
+.brandPanel {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .brandPanel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    position: relative;
+    background: linear-gradient(160deg, #0B1437 0%, #0E1B4A 40%, #12204E 100%);
+    overflow: hidden;
+    padding: var(--space-12);
+  }
+}
+
+.brandPanelContent {
+  position: relative;
+  z-index: 2;
+  max-width: 480px;
+}
+
+.brandLogo {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--white);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-10);
+}
+
+.brandLogo span {
+  color: #38BDF8;
+}
+
+.brandTagline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  margin-bottom: var(--space-6);
+  letter-spacing: -0.03em;
+}
+
+.brandTagline span {
+  background: linear-gradient(135deg, #38BDF8, #818CF8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brandSubtext {
+  font-size: var(--text-lg);
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.7;
+  margin-bottom: var(--space-10);
+  max-width: 400px;
+}
+
+/* Feature Chips */
+.featureChips {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  width: fit-content;
+  transition: all 0.3s;
+}
+
+.chip:hover {
+  background: rgba(56, 189, 248, 0.05);
+  border-color: rgba(56, 189, 248, 0.2);
+  transform: translateX(4px);
+}
+
+.chipIcon {
+  font-size: 1.2rem;
+}
+
+/* Decorative Orbs */
+.orbOne {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, transparent 70%);
+  top: -100px;
+  right: -100px;
+  pointer-events: none;
+  animation: orbFloat 12s ease-in-out infinite alternate;
+}
+
+.orbTwo {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, transparent 70%);
+  bottom: -80px;
+  left: -80px;
+  pointer-events: none;
+  animation: orbFloat 15s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes orbFloat {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -20px) scale(1.1); }
+}
+
+/* ── Right Auth Form Panel ── */
+.authInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: calc(var(--header-height) + var(--space-6)) var(--space-4) var(--space-6);
+  z-index: 1;
+  position: relative;
+}
+
+/* Dot grid pattern on the form side */
+.authInner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+/* Subtle glow behind card */
+.authInner::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .authInner {
+    width: 50%;
+    padding: calc(var(--header-height) + var(--space-10)) var(--space-10) var(--space-10);
+  }
+}

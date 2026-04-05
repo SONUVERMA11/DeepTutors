@@ -1,0 +1,301 @@
+/* ── How It Works (Timeline) ── */
+
+.section {
+  position: relative;
+  background: var(--navy-light);
+  overflow: hidden;
+  padding: var(--space-24) 0;
+}
+
+.bgGlowSecondary {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* ── Header ── */
+.header {
+  text-align: center;
+  margin-bottom: var(--space-20);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.overline {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--royal);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  background: rgba(26, 107, 245, 0.1);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(26, 107, 245, 0.2);
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw + 0.5rem, 3.5rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.headingAccent {
+  background: linear-gradient(135deg, #F5A623, #FCD34D);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--gray-400);
+  max-width: 600px;
+}
+
+/* ── Timeline Container ── */
+.timelineContainer {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--space-8) 0;
+}
+
+/* Central Line */
+.timelineLine {
+  position: absolute;
+  left: 24px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+@media (min-width: 768px) {
+  .timelineLine {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timelineFill {
+  width: 100%;
+  background: linear-gradient(to bottom, #38BDF8, #A78BFA, #F5A623, #10B981);
+  border-radius: 2px;
+  transition: height 0.3s ease-out;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.4);
+}
+
+/* Steps Wrapper */
+.stepsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  position: relative;
+}
+
+/* Individual Step Block */
+.stepCardWrap {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-left: 60px; /* space for timeline line on mobile */
+}
+
+@media (min-width: 768px) {
+  .stepCardWrap {
+    width: 50%;
+    padding-left: 0;
+  }
+  .leftAlign {
+    justify-content: flex-end;
+    padding-right: 48px;
+  }
+  .rightAlign {
+    align-self: flex-end;
+    justify-content: flex-start;
+    padding-left: 48px;
+  }
+}
+
+/* Timeline Node Dot */
+.timelineNode {
+  position: absolute;
+  left: 17px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s var(--ease-out);
+  z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .leftAlign .timelineNode { left: auto; right: -8px; }
+  .rightAlign .timelineNode { left: -8px; right: auto; }
+}
+
+.nodeInner {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: transparent;
+  transition: all 0.4s var(--ease-out);
+}
+
+.nodeActive {
+  border-color: var(--white);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+  transform: translateY(-50%) scale(1.3);
+}
+
+/* Premium 3D Glass Floating Card */
+.stepCard {
+  width: 100%;
+  background: linear-gradient(180deg, rgba(26, 34, 60, 0.8) 0%, rgba(11, 16, 33, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: var(--space-8);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transform: translateY(30px) scale(0.95);
+  opacity: 0.4;
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.stepCard:hover {
+  transform: translateY(-8px) scale(1.02) !important;
+  z-index: 10;
+}
+
+.cardActive {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  border-color: var(--step-border);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), inset 0 2px 30px var(--step-glow);
+}
+
+/* Massive Outline Typography Background */
+.stepNum {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  font-family: var(--font-heading);
+  font-size: clamp(80px, 10vw, 140px);
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.05);
+  line-height: 1;
+  pointer-events: none;
+  transition: all 0.6s;
+  z-index: 0;
+}
+
+.cardActive .stepNum {
+  -webkit-text-stroke: 2px var(--step-border);
+  opacity: 0.2;
+}
+
+.stepBadge {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  background: linear-gradient(135deg, #F5A623, #FCD34D);
+  color: #0F172A;
+  padding: 4px 12px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3);
+  animation: pulse 2s infinite;
+}
+
+/* Glowing Orb Icons */
+.stepIconWrap {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  margin-bottom: var(--space-6);
+  filter: grayscale(100%) opacity(0.5);
+  transition: all 0.6s;
+  z-index: 2;
+}
+
+.cardActive .stepIconWrap {
+  filter: none;
+  background: var(--step-glow);
+  border-color: var(--step-border);
+  box-shadow: 0 0 30px var(--step-glow);
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: var(--space-2);
+}
+
+.stepText {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--gray-400);
+  position: relative;
+  z-index: 2;
+}
+
+.cardActive .stepText {
+  color: var(--gray-200);
+}
+
+/* ── CTA ── */
+.ctaWrap {
+  margin-top: var(--space-16);
+  display: flex;
+  justify-content: center;
+}
+
+.btnHollow {
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  font-weight: 600;
+  font-size: var(--text-base);
+  transition: all 0.3s;
+  background: transparent;
+}
+
+.btnHollow:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+}

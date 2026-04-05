@@ -1,0 +1,66 @@
+.button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: var(--z-whatsapp);
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-full);
+  background: #25D366;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  transition: all var(--duration-normal) var(--ease-spring);
+}
+
+.button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+  color: var(--white);
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+}
+
+.tooltip {
+  position: absolute;
+  right: 68px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: var(--space-2) var(--space-4);
+  background: var(--gray-900);
+  color: var(--white);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  box-shadow: var(--shadow-lg);
+  animation: fadeIn 0.2s var(--ease-out);
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  right: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: var(--gray-900);
+}
+
+@media (min-width: 768px) {
+  .button {
+    bottom: 32px;
+    right: 32px;
+    width: 60px;
+    height: 60px;
+  }
+  .icon {
+    width: 32px;
+    height: 32px;
+  }
+}

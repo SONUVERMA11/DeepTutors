@@ -1,0 +1,162 @@
+/* ── Subject Explorer (Scrolling Marquee) ── */
+
+.section {
+  position: relative;
+  background: #0B1021;
+  padding: var(--space-24) 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.overline {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: #38BDF8;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw + 0.5rem, 3.5rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.headingAccent {
+  background: linear-gradient(135deg, #38BDF8, #818CF8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ── Marquee ── */
+.marqueeContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  transform: rotate(-3deg) scale(1.05);
+  margin: var(--space-10) 0;
+  position: relative;
+}
+
+.marqueeContainer::before,
+.marqueeContainer::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+.marqueeContainer::before {
+  left: 0;
+  background: linear-gradient(to right, #0B1021, transparent);
+}
+.marqueeContainer::after {
+  right: 0;
+  background: linear-gradient(to left, #0B1021, transparent);
+}
+
+.marqueeTrack {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+
+.marqueeInner {
+  display: flex;
+  gap: var(--space-4);
+  white-space: nowrap;
+  animation: scrollLeft 40s linear infinite;
+}
+
+.marqueeReverse .marqueeInner {
+  animation: scrollRight 45s linear infinite;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.33%); }
+}
+@keyframes scrollRight {
+  0% { transform: translateX(-33.33%); }
+  100% { transform: translateX(0); }
+}
+
+.subjectPill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-8);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.subjectPill:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+  transform: translateY(-4px) scale(1.05);
+}
+
+.pillIcon {
+  font-size: var(--text-2xl);
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.2));
+}
+
+.pillLabel {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* ── CTA ── */
+.ctaWrap {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-12);
+  position: relative;
+  z-index: 2;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-4) var(--space-8);
+  background: transparent;
+  color: var(--white);
+  border: 2px solid #38BDF8;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: var(--text-base);
+  transition: all 0.3s;
+}
+
+.ctaBtn:hover {
+  background: rgba(56, 189, 248, 0.1);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+.ctaIcon {
+  transition: transform 0.3s;
+}
+.ctaBtn:hover .ctaIcon {
+  transform: translateX(4px);
+}

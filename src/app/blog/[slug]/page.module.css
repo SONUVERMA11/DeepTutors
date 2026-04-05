@@ -1,0 +1,120 @@
+/* Blog Detail — Mobile-First */
+
+.page {
+  padding-top: 0;
+}
+
+.hero {
+  padding: var(--space-12) 0 var(--space-8);
+  background: var(--bg-warm);
+}
+
+@media (min-width: 768px) {
+  .hero { padding: var(--space-16) 0 var(--space-8); }
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: var(--space-6);
+  color: var(--gray-600);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.backLink:hover {
+  color: var(--royal);
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.category {
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 700;
+}
+
+.metaText {
+  color: var(--gray-500);
+  font-size: var(--text-xs);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  line-height: 1.12;
+  color: var(--gray-900);
+  margin-bottom: var(--space-4);
+  max-width: 900px;
+}
+
+.excerpt {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--gray-600);
+  max-width: 850px;
+}
+
+.coverSection {
+  padding-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .coverSection { padding-bottom: var(--space-10); }
+}
+
+.cover {
+  width: 100%;
+  height: clamp(200px, 40vw, 500px);
+  background-position: center;
+  background-size: cover;
+  border-radius: var(--radius-2xl);
+  border: var(--border-light);
+  box-shadow: var(--shadow-md);
+}
+
+.contentSection {
+  padding-bottom: var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .contentSection { padding-bottom: var(--space-24); }
+}
+
+.contentWrap {
+  max-width: 860px;
+  margin: 0 auto;
+  background: var(--white);
+  border: var(--border-light);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (min-width: 768px) {
+  .contentWrap { padding: var(--space-10); }
+}
+
+.paragraph {
+  font-size: var(--text-base);
+  line-height: 1.8;
+  color: var(--gray-700);
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .paragraph {
+    font-size: var(--text-lg);
+    line-height: 1.9;
+  }
+}
+
+.paragraph:last-child {
+  margin-bottom: 0;
+}

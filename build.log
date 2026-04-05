@@ -1,0 +1,18 @@
+
+> deep-tutors-app@0.1.0 build
+> next build
+
+▲ Next.js 16.2.1 (Turbopack)
+
+⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 2 errors:
+./src/app/(student)
+You cannot have two parallel pages that resolve to the same path. Please check /(admin)/dashboard and /(student).
+
+./src/app/(tutor)
+You cannot have two parallel pages that resolve to the same path. Please check /(student)/dashboard and /(tutor).
+
+    at ignore-listed frames

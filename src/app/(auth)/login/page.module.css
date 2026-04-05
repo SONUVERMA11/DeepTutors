@@ -1,0 +1,213 @@
+.authCard {
+  background: rgba(16, 24, 55, 0.7);
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8) var(--space-8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  animation: fadeInUp var(--duration-slow) var(--ease-spring);
+  color: var(--white);
+}
+
+@media (min-width: 1024px) {
+  .authCard {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 0;
+    max-width: 420px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.header h1 {
+  font-family: var(--font-heading);
+  color: var(--white);
+  font-size: 2rem;
+}
+
+.header p {
+  color: var(--gray-400);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.phoneInput {
+  display: flex;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+/* Inputs & Form Fields */
+.authCard label {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--gray-300);
+  margin-bottom: var(--space-2);
+  font-weight: 500;
+}
+
+.countryCode, .authCard input[type="tel"], .authCard input[type="text"] {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px;
+  color: var(--white) !important;
+  padding: 14px 16px;
+  font-size: var(--text-base);
+  outline: none;
+  transition: all 0.3s;
+}
+
+.countryCode {
+  width: auto;
+  min-width: 110px;
+  cursor: pointer;
+}
+
+.countryCode option {
+  color: #0B1021;
+}
+
+.authCard input[type="tel"], .authCard input[type="text"] {
+  width: 100%;
+}
+
+.countryCode:focus, .authCard input:focus {
+  border-color: #38BDF8 !important;
+  background: rgba(56, 189, 248, 0.05) !important;
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.1);
+}
+
+.authCard p {
+  color: var(--gray-400);
+}
+
+/* Override Buttons */
+.authCard button[type="submit"] {
+  background: linear-gradient(180deg, #FFFFFF 0%, #cbd5e1 100%) !important;
+  color: #0B1021 !important;
+  border-radius: 12px !important;
+  padding: 14px 32px !important;
+  font-weight: 800 !important;
+  font-size: var(--text-base) !important;
+  box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15), inset 0 2px 2px #FFFFFF !important;
+  border: 1px solid rgba(255,255,255,0.5) !important;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.authCard button[type="submit"]:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2), inset 0 2px 2px #FFFFFF !important;
+}
+
+/* Ghost button (Change Phone Number) */
+.ghostBtn {
+  background: transparent !important;
+  color: var(--gray-400) !important;
+  border: none !important;
+  font-size: var(--text-sm) !important;
+  cursor: pointer;
+  padding: 12px;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.ghostBtn:hover {
+  color: var(--white) !important;
+}
+
+/* Auth Divider & Third Party */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: var(--space-4) 0;
+  color: var(--gray-400);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.divider span {
+  padding: 0 var(--space-4);
+  opacity: 0.8;
+}
+
+.googleBtn {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  width: 100%;
+  padding: 14px 20px;
+  background: #FFFFFF;
+  border: 1px solid #DADCE0;
+  border-radius: 12px;
+  color: #3C4043;
+  font-weight: 600;
+  font-size: var(--text-base);
+  font-family: inherit;
+  transition: all 0.2s;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.googleBtn:hover {
+  background: #F8F9FA;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transform: translateY(-1px);
+}
+
+.footer {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(255, 255, 255, 0.08); /* Dark mode compatible line */
+  text-align: center;
+}
+
+.signupActions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+.signupBtn {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--white);
+  border-radius: var(--radius-full);
+  padding: 10px 24px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.signupBtn:hover {
+  border-color: #38BDF8;
+  color: #38BDF8;
+  background: rgba(56, 189, 248, 0.05);
+}
