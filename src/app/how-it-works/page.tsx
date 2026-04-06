@@ -87,6 +87,8 @@ export default function HowItWorksPage() {
   return (
     <div className={styles.page}>
       <div className={styles.hero}>
+        <div className={styles.orbOne}></div>
+        <div className={styles.orbTwo}></div>
         <div className="container">
           <span className={styles.heroBadge}>✨ Simple Process</span>
           <h1 className={styles.heroTitle}>

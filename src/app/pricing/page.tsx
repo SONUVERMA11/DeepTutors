@@ -127,6 +127,7 @@ export default function PricingPage() {
     <div className={styles.pricingPage}>
       {/* ── Hero ── */}
       <section className={styles.heroSection}>
+        <div className={styles.orbOne}></div>
         <div className={`container ${styles.heroContent}`}>
           <span className={styles.heroBadge}>💰 Transparent Pricing</span>
           <h1 className={styles.heroTitle}>

@@ -59,6 +59,7 @@ export default function AboutPage() {
     <div className={styles.aboutPage}>
       {/* ── Hero ── */}
       <section className={styles.heroSection}>
+        <div className={styles.orbOne}></div>
         <div className={`container ${styles.heroContent}`}>
           <span className={styles.heroBadge}>🌟 Our Story</span>
           <h1 className={styles.heroTitle}>
@@ -73,11 +74,11 @@ export default function AboutPage() {
       </section>
 
       {/* ── Mission ── */}
-      <section className={`section section-warm ${styles.missionSection}`}>
+      <section className={styles.missionSection}>
         <div className="container">
           <div className={styles.missionGrid}>
-            <div>
-              <p className="text-overline">Our Mission</p>
+            <div className={styles.missionContent}>
+              <span className={styles.overline}>Our Mission</span>
               <h2 className={styles.missionTitle}>
                 We Find Your Perfect Tutor — You Pay Nothing Until You&apos;re Sure
               </h2>
@@ -112,12 +113,12 @@ export default function AboutPage() {
       </section>
 
       {/* ── Values ── */}
-      <section className={`section section-light`} id="values-section">
+      <section className={styles.valuesSection} id="values-section">
         <div className="container">
           <div className={styles.sectionHeader}>
-            <span className="text-overline">Why DeepTutors</span>
-            <h2 className="heading-2">What We Stand For</h2>
-            <p className="text-body-lg">
+            <span className={styles.overline}>Why DeepTutors</span>
+            <h2 className={styles.sectionTitle}>What We Stand For</h2>
+            <p className={styles.sectionSubtitle}>
               Six core principles that make DeepTutors fundamentally different
               from every other tutoring platform.
             </p>
@@ -127,7 +128,6 @@ export default function AboutPage() {
               <div className={styles.valueCard} key={i}>
                 <div
                   className={styles.valueIcon}
-                  style={{ background: v.color }}
                 >
                   {v.icon}
                 </div>
@@ -140,11 +140,11 @@ export default function AboutPage() {
       </section>
 
       {/* ── Stats ── */}
-      <section className={`section section-warm`} id="stats-section">
+      <section className={styles.statsSection} id="stats-section">
         <div className="container">
           <div className={styles.sectionHeader}>
-            <span className="text-overline">By The Numbers</span>
-            <h2 className="heading-2">DeepTutors by the Numbers</h2>
+            <span className={styles.overline}>By The Numbers</span>
+            <h2 className={styles.sectionTitle}>DeepTutors by the Numbers</h2>
           </div>
           <div className={styles.statsGrid}>
             {stats.map((s, i) => (
@@ -159,11 +159,11 @@ export default function AboutPage() {
       </section>
 
       {/* ── Our Story ── */}
-      <section className={`section section-light`} id="story-section">
+      <section className={styles.storySection} id="story-section">
         <div className="container">
           <div className={styles.sectionHeader}>
-            <span className="text-overline">Our Origin</span>
-            <h2 className="heading-2">The Story Behind DeepTutors</h2>
+            <span className={styles.overline}>Our Origin</span>
+            <h2 className={styles.sectionTitle}>The Story Behind DeepTutors</h2>
           </div>
           <div className={styles.storyContent}>
             <p className={styles.storyText}>
@@ -202,7 +202,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className={`section section-dark`}>
+      <section className={styles.ctaSection}>
         <div className="container">
           <div className={styles.ctaCard}>
             <h2 className={styles.ctaTitle}>Start Learning for Free Today</h2>

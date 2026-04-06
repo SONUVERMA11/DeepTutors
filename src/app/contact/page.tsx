@@ -144,31 +144,34 @@ export default function ContactPage() {
     <div className={styles.contactPage}>
       {/* ── Hero ── */}
       <section className={styles.heroSection}>
+        <div className={styles.orbOne}></div>
         <div className={`container ${styles.heroContent}`}>
-          <span className={styles.heroBadge}>Get In Touch</span>
+          <span className={styles.heroBadge}>👋 Get in Touch</span>
           <h1 className={styles.heroTitle}>
-            We&apos;d Love to{" "}
-            <span className={styles.heroTitleAccent}>Hear From You</span>
+            We&apos;re Here to{" "}
+            <span className={styles.heroTitleAccent}>Help You Grow</span>
           </h1>
           <p className={styles.heroSubtitle}>
-            Have a question, feedback, or partnership inquiry? Reach out and
-            we&apos;ll get back to you promptly.
+            Have questions about our process, pricing, or want to become a tutor?
+            Our support team is ready to assist you.
           </p>
         </div>
       </section>
 
-      {/* ── Main Content ── */}
+      {/* ── Main Section ── */}
       <section className={styles.mainSection}>
         <div className="container">
           <div className={styles.contactGrid}>
-            {/* ── Form ── */}
+            {/* Left: Form */}
             <div className={styles.formCard}>
               {!submitted ? (
                 <>
-                  <h2 className={styles.formTitle}>Send a Message</h2>
+                  <h2 className={styles.formTitle}>Send us a Message</h2>
                   <p className={styles.formSubtitle}>
-                    Fill out the form below and we&apos;ll respond within 24 hours.
+                    Fill out the form below and we&apos;ll get back to you
+                    within 24 hours.
                   </p>
+
                   <form onSubmit={handleSubmit}>
                     <div className={styles.formGrid}>
                       <div className="input-group">
@@ -180,12 +183,13 @@ export default function ContactPage() {
                           type="text"
                           id="contact-name"
                           name="name"
-                          placeholder="Your full name"
+                          placeholder="John Doe"
+                          required
                           value={form.name}
                           onChange={handleChange}
-                          required
                         />
                       </div>
+
                       <div className="input-group">
                         <label className="input-label" htmlFor="contact-email">
                           Email Address
@@ -195,13 +199,14 @@ export default function ContactPage() {
                           type="email"
                           id="contact-email"
                           name="email"
-                          placeholder="you@example.com"
+                          placeholder="john@example.com"
+                          required
                           value={form.email}
                           onChange={handleChange}
-                          required
                         />
                       </div>
-                      <div className={`input-group ${styles.formGroupFull}`}>
+
+                      <div className={`${styles.formGroupFull} input-group`}>
                         <label className="input-label" htmlFor="contact-subject">
                           Subject
                         </label>
@@ -209,38 +214,39 @@ export default function ContactPage() {
                           className="input-field"
                           id="contact-subject"
                           name="subject"
+                          required
                           value={form.subject}
                           onChange={handleChange}
-                          required
                         >
                           <option value="">Select a topic</option>
                           <option value="general">General Inquiry</option>
                           <option value="student">Student Support</option>
                           <option value="tutor">Tutor Support</option>
-                          <option value="billing">Billing Question</option>
+                          <option value="billing">Billing & Pricing</option>
                           <option value="partnership">Partnership</option>
                           <option value="bug">Report a Bug</option>
                         </select>
                       </div>
-                      <div className={`input-group ${styles.formGroupFull}`}>
+
+                      <div className={`${styles.formGroupFull} input-group`}>
                         <label className="input-label" htmlFor="contact-message">
-                          Message
+                          Your Message
                         </label>
                         <textarea
                           className={`input-field ${styles.formTextarea}`}
                           id="contact-message"
                           name="message"
-                          placeholder="Tell us how we can help..."
+                          placeholder="How can we help you?"
+                          required
                           value={form.message}
                           onChange={handleChange}
-                          required
-                        />
+                        ></textarea>
                       </div>
                     </div>
+
                     <button
                       type="submit"
-                      className={`btn btn-primary btn-lg ${styles.formSubmit}`}
-                      id="contact-submit-btn"
+                      className={`btn btn-gold btn-xl ${styles.formSubmit}`}
                     >
                       Send Message →
                     </button>

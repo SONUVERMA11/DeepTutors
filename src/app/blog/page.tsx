@@ -27,8 +27,9 @@ export default function BlogPage() {
     <div className={styles.blogPage}>
       {/* ── Hero ── */}
       <section className={styles.heroSection}>
+        <div className={styles.orbOne}></div>
         <div className={`container ${styles.heroContent}`}>
-          <span className={styles.heroBadge}>Blog & Resources</span>
+          <span className={styles.heroBadge}>📚 Blog & Resources</span>
           <h1 className={styles.heroTitle}>
             Insights for{" "}
             <span className={styles.heroTitleAccent}>Smarter Learning</span>
@@ -95,29 +96,28 @@ export default function BlogPage() {
                     <div className={styles.articleMeta}>
                       <span
                         className={styles.articleCategory}
-                        style={{
-                          color: article.categoryColor,
-                          background: article.categoryBg,
-                        }}
                       >
                         {article.category}
                       </span>
-                      <span className={styles.articleDate}>{article.date} · {article.readTime}</span>
+                      <span className={styles.articleDate}>{article.date} • {article.readTime}</span>
                     </div>
                     <h2 className={styles.articleTitle}>{article.title}</h2>
                     <p className={styles.articleExcerpt}>{article.excerpt}</p>
                     <span className={styles.articleReadMore}>
-                      Read More
+                      Read Article
                       <svg
                         className={styles.articleReadMoreArrow}
-                        viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <path d="M5 12h14m-7-7 7 7-7 7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        ></path>
                       </svg>
                     </span>
                   </div>
