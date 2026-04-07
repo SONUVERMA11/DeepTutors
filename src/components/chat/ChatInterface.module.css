@@ -63,7 +63,7 @@
   top: 50%;
   transform: translateY(-50%);
   font-size: 0.9rem;
-  color: var(--gray-400);
+  color: var(--text-muted);
   pointer-events: none;
 }
 
@@ -129,7 +129,7 @@
 
 .contactPreview {
   font-size: var(--text-xs);
-  color: var(--gray-500);
+  color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -146,7 +146,7 @@
 
 .contactTime {
   font-size: 11px;
-  color: var(--gray-400);
+  color: var(--text-muted);
   white-space: nowrap;
 }
 
@@ -155,7 +155,7 @@
   height: 20px;
   border-radius: 50%;
   background: var(--royal);
-  color: var(--white);
+  color: var(--text-main);
   font-size: 10px;
   font-weight: 700;
   display: flex;
@@ -226,7 +226,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1rem;
-  color: var(--gray-500);
+  color: var(--text-muted);
   cursor: pointer;
   background: none;
   border: none;
@@ -251,7 +251,7 @@
 .dateSeparator {
   text-align: center;
   font-size: var(--text-xs);
-  color: var(--gray-400);
+  color: var(--text-muted);
   padding: var(--space-2) 0;
   position: relative;
 }
@@ -295,7 +295,7 @@
 
 .messageSent {
   background: linear-gradient(135deg, var(--royal), var(--royal-hover));
-  color: var(--white);
+  color: var(--text-main);
   border-bottom-right-radius: var(--radius-sm);
 }
 
@@ -314,12 +314,12 @@
 }
 
 .messageSent .messageTime {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
   text-align: right;
 }
 
 .messageReceived .messageTime {
-  color: var(--gray-400);
+  color: var(--text-muted);
 }
 
 /* ── Typing Indicator ── */
@@ -329,7 +329,7 @@
   gap: var(--space-2);
   padding: var(--space-2) var(--space-4);
   font-size: var(--text-xs);
-  color: var(--gray-500);
+  color: var(--text-muted);
   align-self: flex-start;
 }
 
@@ -383,7 +383,7 @@
   height: 42px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--royal), var(--royal-hover));
-  color: var(--white);
+  color: var(--text-main);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -421,7 +421,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
-  color: var(--gray-500);
+  color: var(--text-muted);
   cursor: pointer;
   background: none;
   border: none;
@@ -442,7 +442,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-4);
-  color: var(--gray-400);
+  color: var(--text-muted);
 }
 
 .emptyChatEmoji {
@@ -452,12 +452,12 @@
 .emptyChatTitle {
   font-size: var(--text-lg);
   font-weight: 600;
-  color: var(--gray-600);
+  color: var(--text-muted);
 }
 
 .emptyChatText {
   font-size: var(--text-sm);
-  color: var(--gray-400);
+  color: var(--text-muted);
 }
 
 /* ── Mobile Back Button ── */
@@ -469,7 +469,7 @@
   align-items: center;
   justify-content: center;
   font-size: 1.1rem;
-  color: var(--gray-600);
+  color: var(--text-muted);
   cursor: pointer;
   background: none;
   border: none;

@@ -31,7 +31,7 @@
 
 .headerSubtitle {
   font-size: var(--text-base);
-  color: var(--gray-500);
+  color: var(--text-muted);
   margin-top: var(--space-1);
 }
 
@@ -72,7 +72,7 @@
 .statLabel {
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--gray-500);
+  color: var(--text-muted);
   margin-bottom: var(--space-1);
 }
 
@@ -147,7 +147,7 @@
 
 .listItemMeta {
   font-size: var(--text-sm);
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 /* ── Skeleton ── */

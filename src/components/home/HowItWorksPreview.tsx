@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./HowItWorksPreview.module.css";
 
 const steps = [
@@ -12,6 +13,8 @@ const steps = [
     icon: "📝",
     glow: "rgba(56, 189, 248, 0.4)",
     borderColor: "rgba(56, 189, 248, 0.5)",
+    src: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80",
+    alt: "Student writing notes"
   },
   {
     num: "02",
@@ -20,6 +23,8 @@ const steps = [
     icon: "🎯",
     glow: "rgba(167, 139, 250, 0.4)",
     borderColor: "rgba(167, 139, 250, 0.5)",
+    src: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80",
+    alt: "Admin team matching tutor"
   },
   {
     num: "03",
@@ -29,6 +34,8 @@ const steps = [
     glow: "rgba(245, 166, 35, 0.4)",
     borderColor: "rgba(245, 166, 35, 0.5)",
     badge: "FREE",
+    src: "https://images.unsplash.com/photo-1588196749597-9ff04689e5b1?auto=format&fit=crop&w=800&q=80",
+    alt: "Online tutoring demo",
   },
   {
     num: "04",
@@ -37,6 +44,8 @@ const steps = [
     icon: "🚀",
     glow: "rgba(16, 185, 129, 0.4)",
     borderColor: "rgba(16, 185, 129, 0.5)",
+    src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    alt: "Smiling student learning"
   },
 ];
 
@@ -50,7 +59,6 @@ export default function HowItWorksPreview() {
       const rect = sectionRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
       
-      // Calculate how far we've scrolled into the section
       const totalScrollable = rect.height;
       const scrolled = windowHeight - rect.top;
       
@@ -60,13 +68,12 @@ export default function HowItWorksPreview() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // init
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <section className={`section ${styles.section}`} ref={sectionRef} id="how-it-works-preview">
-      {/* Background Ambience */}
       <div className={styles.bgGlowSecondary} />
 
       <div className="container">
@@ -81,7 +88,6 @@ export default function HowItWorksPreview() {
         </div>
 
         <div className={styles.timelineContainer}>
-          {/* Animated Connecting Line */}
           <div className={styles.timelineLine}>
             <div 
               className={styles.timelineFill} 
@@ -91,32 +97,43 @@ export default function HowItWorksPreview() {
 
           <div className={styles.stepsWrap}>
             {steps.map((step, i) => {
-              // Calculate activation based on scroll
               const myActivationPoint = (i + 0.5) / steps.length;
               const isActive = scrollProgress >= myActivationPoint;
 
               return (
                 <div 
                   key={i} 
-                  className={`${styles.stepCardWrap} ${i % 2 === 0 ? styles.leftAlign : styles.rightAlign}`}
+                  className={`${styles.stepRow} ${i % 2 === 0 ? styles.rowNormal : styles.rowReverse}`}
                 >
-                  {/* Node on the timeline */}
+                  {/* Timeline Node */}
                   <div className={`${styles.timelineNode} ${isActive ? styles.nodeActive : ''}`}>
-                    <div className={styles.nodeInner} style={{ background: isActive ? step.borderColor : '#1A2348' }} />
+                    <div className={styles.nodeInner} style={{ background: isActive ? step.borderColor : 'var(--card-border)' }} />
                   </div>
 
-                  {/* The Glass Card */}
-                  <div 
-                    className={`${styles.stepCard} ${isActive ? styles.cardActive : ''}`}
-                    style={{ ['--step-glow' as string]: step.glow, ['--step-border' as string]: step.borderColor }}
-                  >
-                    {step.badge && <span className={styles.stepBadge}>{step.badge}</span>}
-                    
-                    <div className={styles.stepNum}>{step.num}</div>
-                    <div className={styles.stepIconWrap}>{step.icon}</div>
-                    
-                    <h3 className={styles.stepTitle}>{step.title}</h3>
-                    <p className={styles.stepText}>{step.text}</p>
+                  {/* Half 1: Card */}
+                  <div className={`${styles.halfCol} ${styles.cardCol}`}>
+                    <div 
+                      className={`${styles.stepCard} ${isActive ? styles.cardActive : ''}`}
+                      style={{ 
+                        '--step-glow': step.glow, 
+                        '--step-border': step.borderColor,
+                        '--mobile-bg': `url('${step.src}')` 
+                      } as React.CSSProperties}
+                    >
+                      <div className={styles.cardMobileBg} />
+                      {step.badge && <span className={styles.stepBadge}>{step.badge}</span>}
+                      <div className={styles.stepNum}>{step.num}</div>
+                      <div className={styles.stepIconWrap}>{step.icon}</div>
+                      <h3 className={styles.stepTitle}>{step.title}</h3>
+                      <p className={styles.stepText}>{step.text}</p>
+                    </div>
+                  </div>
+
+                  {/* Half 2: Image */}
+                  <div className={`${styles.halfCol} ${styles.imageCol}`}>
+                    <div className={`${styles.stepImageWrap} ${isActive ? styles.imageActive : ''}`}>
+                      <Image src={step.src} alt={step.alt} fill sizes="(max-width: 768px) 100vw, 50vw" className={styles.stepImg} />
+                    </div>
                   </div>
                 </div>
               );

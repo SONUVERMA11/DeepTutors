@@ -1,10 +1,22 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 import styles from "./FeaturesSection.module.css";
 
-const features = [
+const gridItems = [
   {
+    type: "image",
+    id: "img1",
+    src: "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=800&q=80",
+    alt: "Dedicated student learning",
+    colSpan: 1,
+    rowSpan: 2,
+    gradient: "transparent",
+    borderColor: "var(--card-border)",
+  },
+  {
+    type: "feature",
     id: "demos",
     title: "3 Free Demo Classes",
     text: "Try up to 3 tutors completely free. Not happy? We assign another. No risk, ever.",
@@ -14,6 +26,7 @@ const features = [
     borderColor: "rgba(245, 166, 35, 0.4)",
   },
   {
+    type: "feature",
     id: "verified",
     title: "Verified & Tested",
     text: "Every tutor passes rigorous document verification and a live teaching test.",
@@ -23,24 +36,27 @@ const features = [
     borderColor: "rgba(16, 185, 129, 0.4)",
   },
   {
+    type: "feature",
     id: "cost",
     title: "Zero Upfront Cost",
-    text: "No registration fee. No hidden charges. The negotiated hourly price is the only thing you ever pay.",
+    text: "No registration fee. No hidden charges. The negotiated price is all you ever pay.",
     colSpan: 1,
     rowSpan: 1,
     gradient: "linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(0,0,0,0))",
     borderColor: "rgba(56, 189, 248, 0.4)",
   },
   {
+    type: "feature",
     id: "admin",
     title: "Admin-Matched Experts",
-    text: "No algorithmic roulette. Our team personally hand-picks the perfect tutor based on your exact needs.",
+    text: "No algorithmic roulette. Our team hand-picks the perfect tutor based on your exact needs.",
     colSpan: 1,
     rowSpan: 1,
     gradient: "linear-gradient(135deg, rgba(167, 139, 250, 0.15), rgba(0,0,0,0))",
     borderColor: "rgba(167, 139, 250, 0.4)",
   },
   {
+    type: "feature",
     id: "refund",
     title: "100% Refund Policy",
     text: "Cancel anytime. Get a full refund on all unused classes. No questions asked.",
@@ -48,6 +64,16 @@ const features = [
     rowSpan: 1,
     gradient: "linear-gradient(135deg, rgba(244, 63, 94, 0.15), rgba(0,0,0,0))",
     borderColor: "rgba(244, 63, 94, 0.4)",
+  },
+  {
+    type: "image",
+    id: "img2",
+    src: "https://images.unsplash.com/photo-1524503033411-c9566986fc8f?auto=format&fit=crop&w=800&q=80",
+    alt: "Expert home tutor",
+    colSpan: 1,
+    rowSpan: 1,
+    gradient: "transparent",
+    borderColor: "var(--card-border)",
   }
 ];
 
@@ -134,31 +160,36 @@ export default function FeaturesSection() {
         </div>
 
         <div className={styles.bentoGrid}>
-          {features.map((feat, i) => (
+          {gridItems.map((item, i) => (
             <div
               key={i}
-              className={`${styles.bentoCard} ${isVisible ? styles.cardVisible : ""}`}
+              className={`${styles.bentoCard} ${isVisible ? styles.cardVisible : ""} ${item.type === "image" ? styles.imageCard : ""}`}
               style={{ 
                 animationDelay: `${i * 100}ms`,
-                ["--col-span" as string]: feat.colSpan,
-                ["--row-span" as string]: feat.rowSpan,
-                ["--border-color" as string]: feat.borderColor,
-                ["--card-bg" as string]: feat.gradient,
+                ["--col-span" as string]: item.colSpan,
+                ["--row-span" as string]: item.rowSpan,
+                ["--border-color" as string]: item.borderColor,
+                ["--card-bg" as string]: item.gradient,
               }}
             >
-              {/* Internal glowing background */}
-              <div className={styles.cardGlowBg} />
-
-              <div className={styles.cardInner}>
-                <div className={styles.miniUIContainer}>
-                  {renderMiniUI(feat.id)}
+              {item.type === "image" ? (
+                <div className={styles.bentoImgWrap}>
+                  <Image src={item.src!} alt={item.alt!} fill sizes="(max-width: 768px) 100vw, 33vw" className={styles.bentoImg} />
                 </div>
-
-                <div className={styles.cardTextContainer}>
-                  <h3 className={styles.cardTitle}>{feat.title}</h3>
-                  <p className={styles.cardText}>{feat.text}</p>
-                </div>
-              </div>
+              ) : (
+                <>
+                  <div className={styles.cardGlowBg} />
+                  <div className={styles.cardInner}>
+                    <div className={styles.miniUIContainer}>
+                      {renderMiniUI(item.id)}
+                    </div>
+                    <div className={styles.cardTextContainer}>
+                      <h3 className={styles.cardTitle}>{item.title}</h3>
+                      <p className={styles.cardText}>{item.text}</p>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>

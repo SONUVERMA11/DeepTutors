@@ -7,7 +7,7 @@
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   animation: fadeInUp var(--duration-slow) var(--ease-spring);
-  color: var(--white);
+  color: var(--text-main);
 }
 
 @media (min-width: 1024px) {
@@ -33,12 +33,12 @@
 
 .header h1 {
   font-family: var(--font-heading);
-  color: var(--white);
+  color: var(--text-main);
   font-size: 2rem;
 }
 
 .header p {
-  color: var(--gray-400);
+  color: var(--text-muted);
 }
 
 .form {
@@ -58,7 +58,7 @@
 .authCard label {
   display: block;
   font-size: var(--text-sm);
-  color: var(--gray-300);
+  color: var(--text-muted);
   margin-bottom: var(--space-2);
   font-weight: 500;
 }
@@ -67,7 +67,7 @@
   background: rgba(255, 255, 255, 0.03) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 12px;
-  color: var(--white) !important;
+  color: var(--text-main) !important;
   padding: 14px 16px;
   font-size: var(--text-base);
   outline: none;
@@ -95,7 +95,7 @@
 }
 
 .authCard p {
-  color: var(--gray-400);
+  color: var(--text-muted);
 }
 
 /* Override Buttons */
@@ -130,7 +130,7 @@
 }
 
 .ghostBtn:hover {
-  color: var(--white) !important;
+  color: var(--text-main) !important;
 }
 
 /* Auth Divider & Third Party */
@@ -138,7 +138,7 @@
   display: flex;
   align-items: center;
   margin: var(--space-4) 0;
-  color: var(--gray-400);
+  color: var(--text-muted);
   font-size: var(--text-sm);
   font-weight: 500;
 }
@@ -195,9 +195,9 @@
 }
 
 .signupBtn {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--white);
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  color: var(--text-main);
   border-radius: var(--radius-full);
   padding: 10px 24px;
   font-size: var(--text-sm);

@@ -44,7 +44,7 @@
   --info:              #06B6D4;
 
   /* ── Backgrounds ── */
-  --bg-body:           #F8F9FC;
+  --bg-body:           var(--bg-main);
   --bg-warm:           #FDFBF7;
   --bg-surface:        var(--white);
   --bg-dark:           var(--navy);
@@ -148,6 +148,27 @@
   --container-2xl: 1400px;
   --sidebar-width: 280px;
   --header-height: 68px;
+
+  /* ── Theme Mapping (Light Default) ── */
+  --bg-main: #FFFFFF;
+  --bg-alt: #F8F9FC;
+  --text-main: var(--gray-900);
+  --text-muted: var(--gray-600);
+  --card-bg: var(--white);
+  --card-border: var(--gray-200);
+  --card-hover: var(--shadow-lg);
+}
+
+[data-theme="dark"] {
+  --bg-main: #0B1021;
+  --bg-alt: #0B1437; /* navy */
+  --text-main: var(--white);
+  --text-muted: var(--gray-400);
+  --card-bg: rgba(255, 255, 255, 0.04);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-hover: 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+  --bg-surface: var(--navy-surface);
+  --bg-warm: #0F1629;
 }
 
 /* ================================================
@@ -165,7 +186,7 @@ html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
-  background-color: #0B1021; /* Fixes rubber-band pulling exposing white */
+  background-color: var(--bg-main);
   overscroll-behavior-y: none;
 }
 
@@ -176,11 +197,12 @@ body {
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: var(--leading-normal);
-  color: var(--gray-900);
-  background-color: #0B1021; /* Default to dark theme for background extension */
+  color: var(--text-main);
+  background-color: var(--bg-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: background-color var(--duration-normal) var(--ease-smooth), color var(--duration-normal) var(--ease-smooth);
 }
 
 a {
@@ -192,10 +214,10 @@ a {
 a:hover { color: var(--royal); }
 
 /* Header & footer live on dark backgrounds — override global anchor colors */
-header a { color: rgba(255, 255, 255, 0.9); }
-header a:hover { color: var(--white); }
-footer a { color: rgba(255, 255, 255, 0.6); }
-footer a:hover { color: var(--white); }
+header a { color: var(--text-muted); }
+header a:hover { color: var(--text-main); }
+footer a { color: var(--text-muted); }
+footer a:hover { color: var(--text-main); }
 
 img, video, svg {
   display: block;
@@ -267,19 +289,19 @@ ul, ol { list-style: none; }
 .text-body {
   font-size: var(--text-base);
   line-height: var(--leading-relaxed);
-  color: var(--gray-600);
+  color: var(--text-muted);
 }
 
 .text-body-lg {
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 .text-caption {
   font-size: var(--text-sm);
   line-height: var(--leading-normal);
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 .text-overline {
@@ -329,12 +351,12 @@ ul, ol { list-style: none; }
 }
 
 .section-dark {
-  background: var(--navy);
-  color: var(--white);
+  background: var(--bg-main);
+  color: var(--text-main);
 }
 
 .section-light {
-  background: var(--bg-body);
+  background: var(--bg-alt);
 }
 
 .section-warm {
@@ -358,9 +380,9 @@ ul, ol { list-style: none; }
    ================================================ */
 
 .card {
-  background: var(--white);
+  background: var(--card-bg);
   border-radius: var(--radius-xl);
-  border: var(--border-light);
+  border: 1px solid var(--card-border);
   padding: var(--space-6);
   transition: transform var(--duration-normal) var(--ease-spring),
               box-shadow var(--duration-normal) var(--ease-smooth);
@@ -540,18 +562,18 @@ ul, ol { list-style: none; }
 .input-field {
   width: 100%;
   padding: var(--space-3) var(--space-4);
-  background: var(--gray-50);
-  border: 2px solid transparent;
+  background: var(--bg-alt);
+  border: 2px solid var(--card-border);
   border-radius: var(--radius-lg);
   font-size: var(--text-base);
-  color: var(--gray-900);
+  color: var(--text-main);
   transition: all var(--duration-normal) var(--ease-smooth);
 }
 
 .input-field:focus {
-  background: var(--white);
+  background: var(--bg-main);
   border-color: var(--royal);
-  box-shadow: 0 0 0 4px var(--royal-100);
+  box-shadow: 0 0 0 4px var(--royal-50);
 }
 
 .input-field::placeholder { color: var(--gray-400); }

@@ -6,11 +6,13 @@ import SubjectExplorer from "@/components/home/SubjectExplorer";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import CTASection from "@/components/home/CTASection";
 import WhatsAppButton from "@/components/home/WhatsAppButton";
+import StatsBar from "@/components/home/StatsBar";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <StatsBar />
       <TrustedBySection />
       <HowItWorksPreview />
       <FeaturesSection />

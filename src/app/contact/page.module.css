@@ -2,7 +2,7 @@
 
 .contactPage { 
   padding-top: 0; 
-  background: #070D1F;
+  background: var(--bg-main);
   min-height: 100vh;
 }
 
@@ -14,7 +14,7 @@
   text-align: center;
   background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
               radial-gradient(circle at 80% 80%, rgba(129, 140, 248, 0.05) 0%, transparent 40%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--card-border);
 }
 
 @media (min-width: 768px) {
@@ -48,7 +48,7 @@
   font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
   font-weight: 800;
   line-height: 1.1;
-  color: var(--white);
+  color: var(--text-main);
   margin-bottom: var(--space-6);
   letter-spacing: -0.03em;
 }
@@ -63,7 +63,7 @@
 .heroSubtitle {
   font-size: var(--text-xl);
   line-height: var(--leading-relaxed);
-  color: var(--gray-400);
+  color: var(--text-muted);
   max-width: 640px;
   margin: 0 auto;
 }
@@ -111,10 +111,10 @@
 
 /* ── Form ── */
 .formCard {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--card-bg);
   border-radius: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow-xl);
   padding: var(--space-8);
   backdrop-filter: blur(24px);
   position: relative;
@@ -128,14 +128,14 @@
   font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 800;
-  color: var(--white);
+  color: var(--text-main);
   margin-bottom: var(--space-2);
   letter-spacing: -0.02em;
 }
 
 .formSubtitle {
   font-size: 15px;
-  color: var(--gray-400);
+  color: var(--text-muted);
   margin-bottom: var(--space-10);
   line-height: 1.6;
 }
@@ -178,13 +178,13 @@
   font-family: var(--font-heading);
   font-size: 2rem; 
   font-weight: 800; 
-  color: var(--white); 
+  color: var(--text-main); 
   margin-bottom: var(--space-4); 
 }
 
 .successText { 
   font-size: var(--text-lg); 
-  color: var(--gray-400); 
+  color: var(--text-muted); 
   line-height: 1.6; 
 }
 
@@ -196,9 +196,9 @@
 }
 
 .infoCard {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--card-bg);
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
   padding: var(--space-6) var(--space-8);
   display: flex;
   align-items: center;
@@ -208,7 +208,7 @@
 
 .infoCard:hover {
   transform: translateX(10px);
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--card-bg);
   border-color: rgba(56, 189, 248, 0.3);
 }
 
@@ -229,7 +229,7 @@
 .infoCard:hover .infoIcon {
   transform: scale(1.1) rotate(-5deg);
   background: #38BDF8;
-  color: #070D1F;
+  color: var(--bg-main);
 }
 
 .infoIcon svg { width: 24px; height: 24px; }
@@ -237,17 +237,17 @@
 .infoTitle {
   font-size: var(--text-base);
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-main);
   margin-bottom: 4px;
 }
 
 .infoText {
   font-size: 14px;
-  color: var(--gray-500);
+  color: var(--text-muted);
   line-height: 1.5;
 }
 
-.infoCard:hover .infoText { color: var(--gray-400); }
+.infoCard:hover .infoText { color: var(--text-main); }
 
 .infoLink {
   color: #38BDF8 !important;
@@ -256,16 +256,16 @@
 
 /* ── Social ── */
 .socialCard {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--card-bg);
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
   padding: var(--space-8);
 }
 
 .socialTitle {
   font-size: 15px;
   font-weight: 700;
-  color: var(--gray-400);
+  color: var(--text-main);
   margin-bottom: var(--space-6);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -280,9 +280,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  color: var(--gray-400);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-muted);
   transition: all 0.4s var(--ease-spring);
 }
 
@@ -291,21 +291,21 @@
 .socialLink:hover { 
   transform: translateY(-5px) rotate(8deg); 
   background: #38BDF8;
-  color: #070D1F;
+  color: var(--bg-main);
   border-color: #38BDF8;
   box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
 }
 
 /* ── Location ── */
 .locationCard {
-  background: linear-gradient(135deg, #0B1437 0%, #1A2348 100%);
+  background: var(--card-bg);
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--card-border);
   padding: var(--space-8);
-  color: var(--white);
+  color: var(--text-main);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-sm);
 }
 
 .locationCard::before {
@@ -347,7 +347,7 @@
 
 .locationText {
   font-size: 14px;
-  color: var(--gray-400);
+  color: var(--text-muted);
   line-height: 1.6;
   position: relative;
   z-index: 1;

@@ -2,7 +2,7 @@
 
 .blogPage { 
   padding-top: 0; 
-  background: #070D1F;
+  background: var(--bg-main);
   min-height: 100vh;
 }
 
@@ -14,7 +14,7 @@
   text-align: center;
   background: radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
               radial-gradient(circle at 85% 85%, rgba(129, 140, 248, 0.05) 0%, transparent 40%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--card-border);
 }
 
 @media (min-width: 768px) {
@@ -48,7 +48,7 @@
   font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
   font-weight: 800;
   line-height: 1.1;
-  color: var(--white);
+  color: var(--text-main);
   margin-bottom: var(--space-6);
   letter-spacing: -0.03em;
 }
@@ -63,7 +63,7 @@
 .heroSubtitle {
   font-size: var(--text-xl);
   line-height: var(--leading-relaxed);
-  color: var(--gray-400);
+  color: var(--text-muted);
   max-width: 640px;
   margin: 0 auto;
 }
@@ -104,24 +104,24 @@
   border-radius: var(--radius-full);
   font-size: 14px;
   font-weight: 600;
-  color: var(--gray-400);
-  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  background: var(--card-bg);
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
   font-family: inherit;
   backdrop-filter: blur(8px);
 }
 
 .categoryBtn:hover {
   background: rgba(255, 255, 255, 0.06);
-  color: var(--white);
-  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-main);
+  border-color: var(--text-muted);
 }
 
 .categoryBtnActive {
   background: linear-gradient(135deg, #38BDF8, #818CF8);
-  color: var(--white);
+  color: var(--text-main);
   border-color: transparent;
   box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
 }
@@ -153,7 +153,7 @@
 .articleLink { color: inherit; text-decoration: none; }
 
 .articleCard {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--card-bg);
   border-radius: 28px;
   border: 1px solid rgba(255, 255, 255, 0.06);
   overflow: hidden;
@@ -165,7 +165,7 @@
 
 .articleCard:hover {
   transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
   border-color: rgba(56, 189, 248, 0.3);
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
 }
@@ -219,7 +219,7 @@
 
 .articleDate {
   font-size: 12px;
-  color: var(--gray-500);
+  color: var(--text-muted);
   font-weight: 500;
 }
 
@@ -227,7 +227,7 @@
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-main);
   line-height: 1.3;
   margin-bottom: var(--space-4);
   transition: color 0.3s ease;
@@ -237,7 +237,7 @@
 
 .articleExcerpt {
   font-size: 15px;
-  color: var(--gray-400);
+  color: var(--text-muted);
   line-height: 1.6;
   margin-bottom: var(--space-6);
   flex: 1;
@@ -253,7 +253,7 @@
   transition: all 0.3s ease;
 }
 
-.articleCard:hover .articleReadMore { gap: var(--space-3); color: var(--white); }
+.articleCard:hover .articleReadMore { gap: var(--space-3); color: var(--text-main); }
 
 .articleReadMoreArrow {
   width: 18px;
@@ -306,11 +306,11 @@
   grid-column: 1 / -1;
   text-align: center;
   padding: var(--space-24) var(--space-8);
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--card-bg);
   border-radius: 32px;
   border: 1px dashed rgba(255, 255, 255, 0.1);
 }
 
 .emptyEmoji { font-size: 4rem; display: block; margin-bottom: var(--space-6); }
-.emptyTitle { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--white); margin-bottom: var(--space-4); }
-.emptyText { font-size: var(--text-lg); color: var(--gray-400); }
+.emptyTitle { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--text-main); margin-bottom: var(--space-4); }
+.emptyText { font-size: var(--text-lg); color: var(--text-muted); }

@@ -1,7 +1,7 @@
 .section {
   padding: var(--space-8) 0;
-  background: #0B1021;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--bg-main);
+  border-bottom: 1px solid var(--card-border);
   overflow: hidden;
 }
 
@@ -9,7 +9,7 @@
   text-align: center;
   font-size: var(--text-xs);
   font-weight: 700;
-  color: var(--gray-400);
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: var(--tracking-widest);
   margin-bottom: var(--space-6);
@@ -32,7 +32,7 @@
 .item {
   font-family: var(--font-heading);
   font-size: clamp(var(--text-base), 2vw, var(--text-lg));
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--text-muted);
   font-weight: 500;
   letter-spacing: var(--tracking-wider);
   white-space: nowrap;
@@ -40,6 +40,6 @@
 }
 
 .item:hover {
-  color: #38BDF8;
-  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  color: var(--royal);
+  text-shadow: 0 0 10px var(--royal-50);
 }

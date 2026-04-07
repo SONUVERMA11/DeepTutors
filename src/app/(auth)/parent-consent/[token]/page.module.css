@@ -18,7 +18,7 @@
 }
 
 .header p {
-  color: var(--gray-500);
+  color: var(--text-muted);
 }
 
 .content {

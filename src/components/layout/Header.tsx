@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 import styles from "./Header.module.css";
 
 const navLinks = [
@@ -55,6 +56,7 @@ export default function Header() {
 
         {/* Auth Buttons */}
         <div className={styles.authButtons}>
+          <ThemeToggle />
           <Link href="/login" className={styles.loginBtn} id="login-btn">
             Log In
           </Link>
@@ -101,7 +103,7 @@ export default function Header() {
           <div className={styles.mobileAuth}>
             <Link
               href="/login"
-              className="btn btn-outline-light btn-lg"
+              className="btn btn-outline btn-lg"
               style={{ width: "100%" }}
               onClick={() => setMobileOpen(false)}
             >

@@ -9,7 +9,7 @@
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   animation: fadeInUp var(--duration-slow) var(--ease-spring);
-  color: var(--white);
+  color: var(--text-main);
   width: 100%;
 }
 
@@ -37,13 +37,13 @@
 
 .header h1 {
   font-family: var(--font-heading);
-  color: var(--white);
+  color: var(--text-main);
   font-size: 1.75rem;
   margin-bottom: 0.25rem;
 }
 
 .header p {
-  color: var(--gray-400);
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
@@ -75,7 +75,7 @@
 .authCard label {
   display: block;
   font-size: var(--text-sm);
-  color: var(--gray-300);
+  color: var(--text-muted);
   margin-bottom: var(--space-2);
   font-weight: 500;
   text-align: left;
@@ -86,7 +86,7 @@
   background: rgba(255, 255, 255, 0.03) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 12px;
-  color: var(--white) !important;
+  color: var(--text-main) !important;
   padding: 10px 14px;
   font-size: var(--text-base);
   outline: none;
@@ -102,7 +102,7 @@
 }
 
 .authCard p, .authCard h3 {
-  color: var(--gray-400);
+  color: var(--text-muted);
 }
 
 /* Subject Pills */
@@ -116,12 +116,12 @@
 .subjectPill {
   display: inline-flex;
   padding: 10px 18px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-full);
   font-size: var(--text-sm);
   font-family: inherit;
-  color: var(--gray-300);
+  color: var(--text-muted);
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -151,7 +151,7 @@
   padding: var(--space-6);
   border: 2px dashed rgba(255, 255, 255, 0.15);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--card-bg);
   cursor: pointer;
   position: relative;
   transition: all 0.3s;
@@ -209,7 +209,7 @@
 
 .actions button[type="button"]:hover {
   border-color: rgba(255, 255, 255, 0.3) !important;
-  color: var(--white) !important;
+  color: var(--text-main) !important;
 }
 
 /* Google Button */
@@ -243,7 +243,7 @@
   display: flex;
   align-items: center;
   margin: var(--space-3) 0;
-  color: var(--gray-400);
+  color: var(--text-muted);
   font-size: var(--text-sm);
   font-weight: 500;
   width: 100%;
@@ -271,7 +271,7 @@
 }
 
 .footer p {
-  color: var(--gray-400);
+  color: var(--text-muted);
 }
 
 .footer a {

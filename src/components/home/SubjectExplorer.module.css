@@ -2,10 +2,10 @@
 
 .section {
   position: relative;
-  background: #0B1021;
+  background: var(--bg-main);
   padding: var(--space-24) 0;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--card-border);
 }
 
 .header {
@@ -29,7 +29,7 @@
   font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw + 0.5rem, 3.5rem);
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-main);
   line-height: 1.2;
 }
 
@@ -60,11 +60,11 @@
 }
 .marqueeContainer::before {
   left: 0;
-  background: linear-gradient(to right, #0B1021, transparent);
+  background: linear-gradient(to right, var(--bg-main), transparent);
 }
 .marqueeContainer::after {
   right: 0;
-  background: linear-gradient(to left, #0B1021, transparent);
+  background: linear-gradient(to left, var(--bg-main), transparent);
 }
 
 .marqueeTrack {
@@ -98,8 +98,8 @@
   align-items: center;
   gap: var(--space-3);
   padding: var(--space-4) var(--space-8);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: var(--radius-full);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -123,7 +123,7 @@
   font-family: var(--font-heading);
   font-size: var(--text-xl);
   font-weight: 600;
-  color: var(--white);
+  color: var(--text-main);
 }
 
 /* ── CTA ── */
@@ -141,7 +141,7 @@
   gap: var(--space-2);
   padding: var(--space-4) var(--space-8);
   background: transparent;
-  color: var(--white);
+  color: var(--text-main);
   border: 2px solid #38BDF8;
   border-radius: var(--radius-full);
   font-weight: 600;

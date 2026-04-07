@@ -7,7 +7,7 @@
   height: 56px;
   border-radius: var(--radius-full);
   background: #25D366;
-  color: var(--white);
+  color: var(--text-main);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +18,7 @@
 .button:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
-  color: var(--white);
+  color: var(--text-main);
 }
 
 .icon {
@@ -33,7 +33,7 @@
   transform: translateY(-50%);
   padding: var(--space-2) var(--space-4);
   background: var(--gray-900);
-  color: var(--white);
+  color: var(--text-main);
   font-size: var(--text-sm);
   font-weight: 600;
   border-radius: var(--radius-md);
