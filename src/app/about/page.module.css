@@ -139,8 +139,8 @@
 .missionVisual::before {
   content: '';
   position: absolute;
-  width: 300px;
-  height: 300px;
+  width: clamp(200px, 80vw, 300px);
+  height: clamp(200px, 80vw, 300px);
   background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, transparent 70%);
   z-index: 0;
 }
@@ -150,13 +150,17 @@
   border-radius: 32px;
   border: 1px solid var(--card-border);
   box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
-  padding: var(--space-10);
+  padding: var(--space-8);
   text-align: center;
   width: 100%;
   max-width: 420px;
   backdrop-filter: blur(24px);
   position: relative;
   z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .missionCard { padding: var(--space-10); }
 }
 
 .missionEmoji {
@@ -285,7 +289,7 @@
 /* ── Stats ── */
 .statsSection {
   padding: var(--space-20) 0;
-  background: rgba(16, 24, 55, 0.4);
+  background: radial-gradient(ellipse at center, rgba(56, 189, 248, 0.05) 0%, transparent 70%);
 }
 
 .statsGrid {
@@ -302,9 +306,13 @@
   background: var(--card-bg);
   border-radius: 24px;
   border: 1px solid var(--card-border);
-  padding: var(--space-8);
+  padding: var(--space-6) var(--space-4);
   text-align: center;
   transition: all 0.4s var(--ease-out);
+}
+
+@media (min-width: 768px) {
+  .statCard { padding: var(--space-8); }
 }
 
 .statCard:hover {
@@ -321,7 +329,7 @@
 
 .statValue {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: clamp(2rem, 6vw, 3rem);
   font-weight: 800;
   color: var(--text-main);
   margin-bottom: var(--space-1);
@@ -356,23 +364,33 @@
 
 .storyQuote {
   position: relative;
-  padding: var(--space-10);
+  padding: var(--space-6);
   background: rgba(56, 189, 248, 0.05);
   border-radius: 24px;
   border-left: 4px solid #38BDF8;
-  margin-top: var(--space-12);
+  margin-top: var(--space-8);
   backdrop-filter: blur(8px);
 }
 
 .storyQuoteText {
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: clamp(1.25rem, 5vw, 2rem);
   font-style: italic;
   font-weight: 700;
   line-height: 1.2;
   color: var(--text-main);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-4);
   letter-spacing: -0.01em;
+}
+
+@media (min-width: 768px) {
+  .storyQuote {
+    padding: var(--space-10);
+    margin-top: var(--space-12);
+  }
+  .storyQuoteText {
+    margin-bottom: var(--space-6);
+  }
 }
 
 .storyQuoteAuthor {
@@ -389,25 +407,32 @@
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
-  padding: var(--space-16) var(--space-8);
+  padding: var(--space-8) var(--space-6);
   background: linear-gradient(135deg, #0B1437 0%, #1A2348 100%);
-  border-radius: 40px;
+  border-radius: 24px;
   border: 1px solid var(--card-border);
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 768px) {
+  .ctaCard {
+    padding: var(--space-16) var(--space-8);
+    border-radius: 40px;
+  }
 }
 
 .ctaTitle {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
-  color: var(--text-main);
+  color: #FFFFFF;
   margin-bottom: var(--space-4);
   letter-spacing: -0.02em;
 }
 
 .ctaText {
   font-size: 1.25rem;
-  color: var(--text-muted);
+  color: rgba(255, 255, 255, 0.8);
   max-width: 600px;
   margin: 0 auto var(--space-10);
   line-height: 1.6;

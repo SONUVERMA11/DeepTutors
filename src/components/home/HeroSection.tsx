@@ -20,7 +20,7 @@ const floatingImages = [
   },
   {
     id: "bl",
-    src: "https://images.unsplash.com/photo-1588196749597-9ff04689e5b1?auto=format&fit=crop&w=400&q=80",
+    src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=80",
     alt: "Online Learning",
     className: styles.floatBottomLeft,
   },

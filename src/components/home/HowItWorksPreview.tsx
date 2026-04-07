@@ -34,7 +34,7 @@ const steps = [
     glow: "rgba(245, 166, 35, 0.4)",
     borderColor: "rgba(245, 166, 35, 0.5)",
     badge: "FREE",
-    src: "https://images.unsplash.com/photo-1588196749597-9ff04689e5b1?auto=format&fit=crop&w=800&q=80",
+    src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80",
     alt: "Online tutoring demo",
   },
   {

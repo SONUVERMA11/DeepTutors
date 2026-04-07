@@ -151,18 +151,19 @@ export default function PricingPage() {
               and families.
             </p>
           </div>
-          <div className={styles.stepsGrid}>
+          <div className={styles.pipelineContainer}>
             {steps.map((step, i) => (
-              <div className={styles.stepCard} key={i}>
-                <div
-                  className={styles.stepNumber}
-                  style={{ background: step.color }}
-                >
-                  {i + 1}
+              <div className={styles.pipelineNode} key={i}>
+                <div className={styles.pipelineDot}>
+                  <div className={styles.pipelineDotInner} style={{ background: step.color }}></div>
                 </div>
-                <span className={styles.stepEmoji}>{step.emoji}</span>
-                <h3 className={styles.stepTitle}>{step.title}</h3>
-                <p className={styles.stepText}>{step.text}</p>
+                <div className={styles.pipelineContent}>
+                  <span className={styles.pipelineEmoji} style={{ background: `${step.color}20` }}>
+                    {step.emoji}
+                  </span>
+                  <h3 className={styles.pipelineTitle}>{step.title}</h3>
+                  <p className={styles.pipelineText}>{step.text}</p>
+                </div>
               </div>
             ))}
           </div>

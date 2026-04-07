@@ -263,7 +263,6 @@
 
 .articleCard:hover .articleReadMoreArrow { transform: translateX(4px); }
 
-/* ── Featured ── */
 .featuredCard {
   grid-column: 1 / -1;
   display: grid;
@@ -271,6 +270,19 @@
   border-radius: 32px;
   background: rgba(16, 24, 55, 0.8);
   border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+.featuredCard .articleTitle {
+  color: #FFFFFF;
+}
+
+.featuredCard .articleExcerpt,
+.featuredCard .articleDate {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.featuredCard:hover .articleReadMore {
+  color: #FFFFFF;
 }
 
 @media (min-width: 900px) {

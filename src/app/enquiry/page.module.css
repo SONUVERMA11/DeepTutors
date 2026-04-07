@@ -1,0 +1,204 @@
+.enquiryPage {
+  min-height: 100vh;
+  padding: calc(var(--header-height) + var(--space-8)) 0 var(--space-20);
+  background: var(--bg-alt);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .enquiryPage { padding-top: calc(var(--header-height) + var(--space-12)); }
+}
+
+.orbOne, .orbTwo {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: float 20s ease-in-out infinite alternate;
+}
+
+.orbOne {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
+  top: -200px;
+  left: -200px;
+}
+
+.orbTwo {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.08) 0%, transparent 60%);
+  bottom: -100px;
+  right: -100px;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(30px, -50px) scale(1.1); }
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .header { margin-bottom: var(--space-10); }
+}
+
+.badge {
+  display: inline-block;
+  padding: var(--space-2) var(--space-4);
+  background: rgba(56, 189, 248, 0.1);
+  color: #38BDF8;
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  margin-bottom: var(--space-4);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: var(--text-lg);
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Form Card */
+.formCard {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  padding: var(--space-6) var(--space-4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .formCard { padding: var(--space-10) var(--space-8); border-radius: 32px; }
+}
+
+/* Toggle */
+.toggleContainer {
+  display: flex;
+  background: var(--bg-alt);
+  padding: 4px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--card-border);
+  margin-bottom: var(--space-8);
+  position: relative;
+}
+
+.toggleBtn {
+  flex: 1;
+  padding: var(--space-3) 0;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  transition: all 0.3s var(--ease-spring);
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 400px) {
+  .toggleBtn { font-size: 12px; }
+}
+
+.toggleBtn[data-active="true"] {
+  color: #FFFFFF;
+}
+
+.toggleHighlight {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  width: calc(50% - 4px);
+  background: linear-gradient(135deg, #38BDF8, #818CF8);
+  border-radius: var(--radius-full);
+  transition: transform 0.4s var(--ease-spring);
+  z-index: 0;
+  box-shadow: 0 4px 12px rgba(56, 189, 248, 0.3);
+}
+
+/* Form Grid */
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-bottom: var(--space-8);
+  animation: simpleFadeIn 0.4s ease-out;
+}
+
+@media (min-width: 768px) {
+  .formGrid { grid-template-columns: 1fr 1fr; }
+}
+
+.fullRow {
+  grid-column: 1 / -1;
+}
+
+@keyframes simpleFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submitBtn {
+  width: 100%;
+}
+
+.successState {
+  text-align: center;
+  padding: var(--space-10) 0;
+  animation: simpleFadeIn 0.4s ease-out;
+}
+
+.successIcon {
+  font-size: 4rem;
+  margin-bottom: var(--space-6);
+  display: block;
+}
+
+.successTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: var(--space-4);
+  font-family: var(--font-heading);
+}
+
+.successText {
+  color: var(--text-muted);
+  font-size: var(--text-lg);
+  line-height: 1.6;
+}
