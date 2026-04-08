@@ -113,7 +113,7 @@
 }
 
 .cardList li {
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   color: var(--text-muted);
   line-height: var(--leading-normal);
 }
@@ -127,7 +127,7 @@
 }
 
 .trustRow span {
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   color: var(--text-muted);
   font-weight: 500;
 }

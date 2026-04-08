@@ -210,9 +210,7 @@ export default function PricingPage() {
                 </div>
                 <Link
                   href="/register/student"
-                  className={`btn ${
-                    tier.popular ? "btn-primary" : "btn-outline"
-                  } btn-lg ${styles.tierCta}`}
+                  className={`btn btn-gold btn-lg ${styles.tierCta}`}
                 >
                   Book Free Demo
                 </Link>

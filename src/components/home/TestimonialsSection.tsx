@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import styles from "./TestimonialsSection.module.css";
 
@@ -31,6 +32,42 @@ const testimonials = [
 ];
 
 export default function TestimonialsSection() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
+  
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  };
+
+  const renderCard = (t: typeof testimonials[0], i: number) => (
+    <div key={i} className={styles.testamonialCard}>
+      <div className={styles.quoteMark}>"</div>
+      
+      <div className={styles.stars}>
+        {"★".repeat(t.rating)}
+      </div>
+      
+      <p className={styles.quoteText}>{t.text}</p>
+      
+      <div className={styles.authorArea}>
+        <div className={styles.avatar}>
+          <Image src={t.avatar} alt={t.name} fill className={styles.avatarImg} />
+        </div>
+        <div className={styles.authorMeta}>
+          <strong className={styles.authorName}>{t.name}</strong>
+          <div className={styles.googleReview}>
+             {/* Placeholder for SVG icon, using simple G for now */}
+            <span className={styles.gIcon}>G</span> Google Review
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section className={`section ${styles.section}`} id="testimonials-section">
       <div className={styles.gradientSphere} />
@@ -44,31 +81,31 @@ export default function TestimonialsSection() {
           </h2>
         </div>
 
-        <div className={styles.grid}>
-          {testimonials.map((t, i) => (
-            <div key={i} className={styles.testamonialCard}>
-              <div className={styles.quoteMark}>"</div>
-              
-              <div className={styles.stars}>
-                {"★".repeat(t.rating)}
-              </div>
-              
-              <p className={styles.quoteText}>{t.text}</p>
-              
-              <div className={styles.authorArea}>
-                <div className={styles.avatar}>
-                  <Image src={t.avatar} alt={t.name} fill className={styles.avatarImg} />
-                </div>
-                <div className={styles.authorMeta}>
-                  <strong className={styles.authorName}>{t.name}</strong>
-                  <div className={styles.googleReview}>
-                     {/* Placeholder for SVG icon, using simple G for now */}
-                    <span className={styles.gIcon}>G</span> Google Review
-                  </div>
-                </div>
-              </div>
+        {!isExpanded ? (
+          <div className={styles.sliderContainer}>
+            <button className={styles.arrowBtn} onClick={handlePrev} aria-label="Previous Testimonial">
+              ←
+            </button>
+            <div className={styles.sliderTrack}>
+              {renderCard(testimonials[currentIndex], currentIndex)}
             </div>
-          ))}
+            <button className={styles.arrowBtn} onClick={handleNext} aria-label="Next Testimonial">
+              →
+            </button>
+          </div>
+        ) : (
+          <div className={styles.grid}>
+            {testimonials.map((t, i) => renderCard(t, i))}
+          </div>
+        )}
+
+        <div className={styles.toggleWrapper}>
+          <button 
+            className={styles.viewAllBtn} 
+            onClick={() => setIsExpanded(!isExpanded)}
+          >
+            {isExpanded ? "Show Less" : "View All Testimonials"}
+          </button>
         </div>
       </div>
     </section>

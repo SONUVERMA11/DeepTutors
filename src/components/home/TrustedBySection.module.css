@@ -28,6 +28,11 @@
   width: fit-content;
 }
 
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - (var(--space-8) / 2))); }
+}
+
 .item {
   font-family: var(--font-heading);
   font-size: clamp(var(--text-base), 2vw, var(--text-lg));

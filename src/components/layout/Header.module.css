@@ -6,16 +6,25 @@
   left: 0;
   right: 0;
   z-index: var(--z-sticky);
-  background: var(--bg-main);
+  background: #10B981; /* Solid green in light theme */
   transition: background var(--duration-normal) var(--ease-smooth),
               box-shadow var(--duration-normal) var(--ease-smooth),
               backdrop-filter var(--duration-normal) var(--ease-smooth);
 }
 
 .scrolled {
-  background: var(--bg-main);
+  background: #10B981; /* Solid green in light theme */
   box-shadow: var(--shadow-sm);
   border-bottom: 1px solid var(--card-border);
+}
+
+/* ── Dark Theme Overrides ── */
+:global([data-theme="dark"]) .header {
+  background: var(--bg-main);
+}
+
+:global([data-theme="dark"]) .scrolled {
+  background: var(--bg-main);
 }
 
 .inner {
@@ -48,14 +57,14 @@
 .logoText {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--text-main);
+  color: var(--white);
   font-weight: 900;
   pointer-events: none;
   letter-spacing: -0.02em;
 }
 
 .logoAccent {
-  color: #38BDF8;
+  color: var(--gold);
   pointer-events: none;
 }
 
@@ -124,16 +133,16 @@
   width: 40px;
   height: 40px;
   border-radius: var(--radius-full);
-  color: var(--text-main);
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
+  color: var(--white);
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
   transition: all var(--duration-fast);
   cursor: pointer;
 }
 
 .themeToggle:hover {
-  background: var(--royal-50);
-  color: var(--royal);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--white);
   transform: scale(1.05);
 }
 
@@ -156,7 +165,7 @@
   display: block;
   height: 2px;
   width: 100%;
-  background: var(--text-main);
+  background: var(--white);
   border-radius: 2px;
   transition: all var(--duration-normal) var(--ease-smooth);
   transform-origin: center;

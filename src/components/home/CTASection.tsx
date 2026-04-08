@@ -42,7 +42,7 @@ export default function CTASection() {
               <li>✔ Max 10 students, quality focus</li>
               <li>✔ UPI / PayPal payout in 3 days</li>
             </ul>
-            <Link href="/register/tutor" className="btn btn-white btn-lg" style={{ width: "100%" }}>
+            <Link href="/register/tutor" className="btn btn-gold btn-lg" style={{ width: "100%" }}>
               Apply to Teach
             </Link>
           </div>

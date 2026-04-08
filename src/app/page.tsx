@@ -12,13 +12,12 @@ export default function HomePage() {
   return (
     <>
       <HeroSection />
+      <CTASection />
       <StatsBar />
       <TrustedBySection />
-      <HowItWorksPreview />
-      <FeaturesSection />
       <SubjectExplorer />
+      <FeaturesSection />
       <TestimonialsSection />
-      <CTASection />
       <WhatsAppButton />
     </>
   );

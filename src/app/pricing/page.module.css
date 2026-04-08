@@ -299,21 +299,9 @@
 }
 
 .tierPopular {
-  background: rgba(16, 24, 55, 0.8);
   border: 2px solid #38BDF8;
   box-shadow: 0 0 30px rgba(56, 189, 248, 0.1);
-}
-
-.tierPopular .tierName,
-.tierPopular .tierCurrency,
-.tierPopular .tierAmount {
-  color: #FFFFFF !important;
-}
-
-.tierPopular .tierDesc,
-.tierPopular .tierPeriod,
-.tierPopular .tierFeature {
-  color: rgba(255, 255, 255, 0.8) !important;
+  transform: scale(1.02);
 }
 
 .tierPopular::after {

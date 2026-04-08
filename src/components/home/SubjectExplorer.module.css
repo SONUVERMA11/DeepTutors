@@ -160,3 +160,54 @@
 .ctaBtn:hover .ctaIcon {
   transform: translateX(4px);
 }
+
+/* ── Expanded Grid ── */
+.expandedGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+  max-width: 1000px;
+  margin: var(--space-8) auto 0;
+  padding: 0 var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .expandedGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .expandedGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.expandedPill {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.expandedPill:hover {
+  background: var(--royal-50);
+  border-color: var(--royal);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.expandedIcon {
+  font-size: var(--text-xl);
+}
+
+.expandedLabel {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-main);
+}

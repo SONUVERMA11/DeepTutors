@@ -8,26 +8,26 @@ import styles from "./HeroSection.module.css";
 const floatingImages = [
   {
     id: "tl",
-    src: "/images/hero-interactive-session.png",
-    alt: "Interactive Tutoring Session",
+    src: "https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=800&q=80",
+    alt: "Online Teacher on Screen",
     className: styles.floatTopLeft,
   },
   {
     id: "tr",
-    src: "/images/hero-home-tutoring.png",
+    src: "https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80",
     alt: "Collaborative Home Tutoring",
     className: styles.floatTopRight,
   },
   {
     id: "bl",
-    src: "/images/hero-online-learning.png",
-    alt: "Online Learning Experience",
+    src: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?auto=format&fit=crop&w=800&q=80",
+    alt: "Online Learning Experience Laptop",
     className: styles.floatBottomLeft,
   },
   {
     id: "br",
-    src: "/images/hero-smiling-student.png",
-    alt: "Happy Confident Student",
+    src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    alt: "Happy Confident Student Studying",
     className: styles.floatBottomRight,
   }
 ];
@@ -62,12 +62,12 @@ export default function HeroSection() {
           </div>
 
           <h1 className={styles.heading}>
-            Finding the right home tutor<br />
-            <span className={styles.headingAccent}>made easy.</span>
+            Elite Home & Online Tutoring <br />
+            <span className={styles.headingAccent}>Worldwide.</span>
           </h1>
 
           <p className={styles.subtitle}>
-            Experience the future of tailored education. Master any subject with elite, verified tutors matched to your learning style.
+            Unlock your potential with our global network of top 1% verified educators. We deliver deeply personalized learning tailored exactly to your pace and goals.
             <br />
             <span className={styles.highlightText}>Zero upfront cost. 3 Free Demos.</span>
           </p>
