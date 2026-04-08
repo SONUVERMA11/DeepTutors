@@ -86,6 +86,25 @@
   gap: var(--space-3);
 }
 
+.errorBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  margin-bottom: var(--space-4);
+  font-size: var(--text-sm);
+  color: #EF4444;
+  line-height: 1.5;
+  width: 100%;
+}
+
+.errorBanner p {
+  color: #EF4444 !important;
+}
+
 /* Region Card */
 .regionCard {
   margin-bottom: var(--space-5);

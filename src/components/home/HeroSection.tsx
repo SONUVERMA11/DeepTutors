@@ -8,26 +8,26 @@ import styles from "./HeroSection.module.css";
 const floatingImages = [
   {
     id: "tl",
-    src: "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=400&q=80",
-    alt: "Interactive Session",
+    src: "/images/hero-interactive-session.png",
+    alt: "Interactive Tutoring Session",
     className: styles.floatTopLeft,
   },
   {
     id: "tr",
-    src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=400&q=80",
-    alt: "Home Tutoring",
+    src: "/images/hero-home-tutoring.png",
+    alt: "Collaborative Home Tutoring",
     className: styles.floatTopRight,
   },
   {
     id: "bl",
-    src: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=80",
-    alt: "Online Learning",
+    src: "/images/hero-online-learning.png",
+    alt: "Online Learning Experience",
     className: styles.floatBottomLeft,
   },
   {
     id: "br",
-    src: "https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=400&q=80",
-    alt: "Smiling Student",
+    src: "/images/hero-smiling-student.png",
+    alt: "Happy Confident Student",
     className: styles.floatBottomRight,
   }
 ];
@@ -47,7 +47,7 @@ export default function HeroSection() {
       <div className={styles.floatingEnv}>
         {floatingImages.map((img) => (
           <div key={img.id} className={`${styles.floatImg} ${img.className}`}>
-            <Image src={img.src} alt={img.alt} fill sizes="200px" className={styles.stockImg} priority />
+            <Image src={img.src} alt={img.alt} fill sizes="(max-width: 1023px) 0px, 400px" className={styles.stockImg} priority />
           </div>
         ))}
       </div>
@@ -94,7 +94,7 @@ export default function HeroSection() {
         <div className={styles.mobileImageSlider}>
           {floatingImages.map((img) => (
             <div key={img.id} className={styles.mobileSliderImg}>
-               <Image src={img.src} alt={img.alt} fill sizes="(max-width: 768px) 80vw" className={styles.stockImg} />
+               <Image src={img.src} alt={img.alt} fill sizes="(max-width: 1023px) 90vw, 0px" className={styles.stockImg} />
             </div>
           ))}
         </div>

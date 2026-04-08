@@ -3,16 +3,19 @@
 import { useState } from "react";
 import Link from "next/link";
 import styles from "./page.module.css";
-import { useRouter } from "next/navigation";
+import { signUpTutor, signInWithGoogle, uploadDocument } from "../../actions";
 
 export default function TutorRegisterPage() {
   const [step, setStep] = useState(1);
-  const router = useRouter();
+  const [error, setError] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+  const [degreeFile, setDegreeFile] = useState<File | null>(null);
+  const [govIdFile, setGovIdFile] = useState<File | null>(null);
 
-  // Basic forms
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    password: "",
     phone: "",
     highestDegree: "",
     subjects: [] as string[],
@@ -20,7 +23,7 @@ export default function TutorRegisterPage() {
   });
 
   const availableSubjects = [
-    "Mathematics", "Physics", "Chemistry", "Biology", 
+    "Mathematics", "Physics", "Chemistry", "Biology",
     "Computer Science", "English Language", "Economics", "History",
     "French", "Spanish", "Accounting", "Business Studies"
   ];
@@ -36,15 +39,56 @@ export default function TutorRegisterPage() {
 
   const nextStep = (e: React.FormEvent) => {
     e.preventDefault();
+    setError(null);
     if (step < 3) setStep(prev => prev + 1);
     else handleComplete();
   };
 
-  const handleComplete = () => {
-    // In real app, we handle file uploads to Supabase Storage here
-    // And wait for Admin Verification
-    // Redirect to a specific "Pending Verification" dash
-    router.push("/tutor/dashboard");
+  const handleComplete = async () => {
+    setError(null);
+    setLoading(true);
+
+    try {
+      // 1. Create account + profile
+      const result = await signUpTutor(formData);
+      if (result?.error) {
+        setError(result.error);
+        setLoading(false);
+        return;
+      }
+    } catch {
+      // redirect throws on success — now try to upload files
+      // Note: file uploads happen after account creation
+      try {
+        if (degreeFile) {
+          const fd = new FormData();
+          fd.append("file", degreeFile);
+          await uploadDocument(fd, "tutor-docs", `degrees/${Date.now()}-${degreeFile.name}`);
+        }
+        if (govIdFile) {
+          const fd = new FormData();
+          fd.append("file", govIdFile);
+          await uploadDocument(fd, "tutor-docs", `gov-ids/${Date.now()}-${govIdFile.name}`);
+        }
+      } catch {
+        // File upload errors are non-blocking
+        console.warn("File upload failed — user can retry from dashboard");
+      }
+    }
+  };
+
+  const handleGoogleSignUp = async () => {
+    setError(null);
+    setLoading(true);
+    try {
+      const result = await signInWithGoogle();
+      if (result?.error) {
+        setError(result.error);
+        setLoading(false);
+      }
+    } catch {
+      // redirect throws on success
+    }
   };
 
   return (
@@ -59,7 +103,19 @@ export default function TutorRegisterPage() {
         </p>
       </div>
 
-      <button type="button" className={styles.googleBtn}>
+      {error && (
+        <div className={styles.errorBanner}>
+          <span>⚠️</span>
+          <p>{error}</p>
+        </div>
+      )}
+
+      <button
+        type="button"
+        className={styles.googleBtn}
+        onClick={handleGoogleSignUp}
+        disabled={loading}
+      >
         <svg viewBox="0 0 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
           <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
@@ -96,6 +152,18 @@ export default function TutorRegisterPage() {
                 required
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              />
+            </div>
+            <div className="input-group" style={{ marginBottom: "1rem" }}>
+              <label className="input-label">Password</label>
+              <input
+                type="password"
+                className="input-field"
+                placeholder="Min 6 characters"
+                required
+                minLength={6}
+                value={formData.password}
+                onChange={(e) => setFormData({ ...formData, password: e.target.value })}
               />
             </div>
             <div className="input-group" style={{ marginBottom: "1rem" }}>
@@ -160,18 +228,32 @@ export default function TutorRegisterPage() {
 
             <div className={styles.uploadZone}>
               <span style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>📄</span>
-              <p className="text-sm" style={{ fontWeight: 500 }}>Upload Highest Degree</p>
+              <p className="text-sm" style={{ fontWeight: 500 }}>
+                {degreeFile ? `✅ ${degreeFile.name}` : "Upload Highest Degree"}
+              </p>
               <p className="text-caption">Drag & Drop or click to browse</p>
-              <input type="file" className={styles.fileInput} />
+              <input
+                type="file"
+                className={styles.fileInput}
+                accept=".pdf,.jpg,.jpeg,.png"
+                onChange={(e) => setDegreeFile(e.target.files?.[0] || null)}
+              />
             </div>
 
             <div className={styles.uploadZone} style={{ marginTop: "1rem" }}>
               <span style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>🪪</span>
-              <p className="text-sm" style={{ fontWeight: 500 }}>Upload Government ID</p>
+              <p className="text-sm" style={{ fontWeight: 500 }}>
+                {govIdFile ? `✅ ${govIdFile.name}` : "Upload Government ID"}
+              </p>
               <p className="text-caption">Passport, Driving License, or National ID</p>
-              <input type="file" className={styles.fileInput} />
+              <input
+                type="file"
+                className={styles.fileInput}
+                accept=".pdf,.jpg,.jpeg,.png"
+                onChange={(e) => setGovIdFile(e.target.files?.[0] || null)}
+              />
             </div>
-            
+
             <p className="text-caption" style={{ marginTop: "1rem", color: "var(--success)", textAlign: "center" }}>
               Your documents are securely fully encrypted.
             </p>
@@ -184,12 +266,18 @@ export default function TutorRegisterPage() {
               type="button"
               className="btn btn-ghost"
               onClick={() => setStep((prev) => prev - 1)}
+              disabled={loading}
             >
               Back
             </button>
           )}
-          <button type="submit" className="btn btn-primary" style={{ flex: 1 }} disabled={step === 2 && formData.subjects.length === 0}>
-            {step < 3 ? "Continue" : "Submit for Verification"}
+          <button
+            type="submit"
+            className="btn btn-primary"
+            style={{ flex: 1 }}
+            disabled={loading || (step === 2 && formData.subjects.length === 0)}
+          >
+            {loading ? "Creating account…" : step < 3 ? "Continue" : "Submit for Verification"}
           </button>
         </div>
       </form>

@@ -1,7 +1,6 @@
 .section {
   padding: var(--space-8) 0;
-  background: var(--bg-main);
-  border-bottom: 1px solid var(--card-border);
+  background: var(--gold-50);
   overflow: hidden;
 }
 

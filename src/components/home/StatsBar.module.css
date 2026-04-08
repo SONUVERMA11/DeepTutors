@@ -1,8 +1,6 @@
 .statsBarContainer {
   width: 100%;
-  background: var(--bg-surface);
-  border-top: 1px solid var(--card-border);
-  border-bottom: 1px solid var(--card-border);
+  background: var(--royal-50);
   padding: var(--space-8) 0;
   position: relative;
   z-index: 20;

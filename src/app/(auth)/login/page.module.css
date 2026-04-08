@@ -78,7 +78,25 @@
   font-weight: 500;
 }
 
-.countryCode, .authCard input[type="tel"], .authCard input[type="text"] {
+.errorBanner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 12px;
+  margin-bottom: var(--space-4);
+  font-size: var(--text-sm);
+  color: #EF4444;
+  line-height: 1.5;
+}
+
+.errorBanner p {
+  color: #EF4444 !important;
+}
+
+.countryCode, .authCard input[type="tel"], .authCard input[type="text"], .authCard input[type="email"], .authCard input[type="password"] {
   background: var(--bg-alt) !important;
   border: 1px solid var(--card-border) !important;
   border-radius: 12px;

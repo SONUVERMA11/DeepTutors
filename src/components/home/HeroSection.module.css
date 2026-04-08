@@ -197,7 +197,7 @@
   margin-top: var(--space-8);
   flex-wrap: wrap;
   justify-content: center;
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   color: var(--text-muted);
   font-weight: 600;
 }
@@ -241,33 +241,33 @@
 /* Positioning */
 .floatTopLeft {
   top: 10%;
-  left: 8%;
-  width: 140px;
-  height: 140px;
+  left: 6%;
+  width: 180px;
+  height: 180px;
   animation-delay: 0s;
 }
 
 .floatTopRight {
-  top: 15%;
-  right: 5%;
-  width: 180px;
-  height: 180px;
+  top: 12%;
+  right: 4%;
+  width: 220px;
+  height: 220px;
   animation-delay: -1.5s;
 }
 
 .floatBottomLeft {
-  bottom: 12%;
-  left: 12%;
-  width: 160px;
-  height: 160px;
+  bottom: 10%;
+  left: 10%;
+  width: 200px;
+  height: 200px;
   animation-delay: -3s;
 }
 
 .floatBottomRight {
-  bottom: 20%;
-  right: 15%;
-  width: 120px;
-  height: 120px;
+  bottom: 18%;
+  right: 12%;
+  width: 160px;
+  height: 160px;
   animation-delay: -4.5s;
 }
 
