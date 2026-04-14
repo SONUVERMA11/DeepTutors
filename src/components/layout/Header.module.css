@@ -6,14 +6,14 @@
   left: 0;
   right: 0;
   z-index: var(--z-sticky);
-  background: #10B981; /* Solid green in light theme */
+  background: #FFF44F; /* Lemon yellow */
   transition: background var(--duration-normal) var(--ease-smooth),
               box-shadow var(--duration-normal) var(--ease-smooth),
               backdrop-filter var(--duration-normal) var(--ease-smooth);
 }
 
 .scrolled {
-  background: #10B981; /* Solid green in light theme */
+  background: #FFF44F; /* Lemon yellow */
   box-shadow: var(--shadow-sm);
   border-bottom: 1px solid var(--card-border);
 }
@@ -57,14 +57,14 @@
 .logoText {
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  color: var(--white);
+  color: #FF1493; /* Vibrant Electric Pink */
   font-weight: 900;
   pointer-events: none;
   letter-spacing: -0.02em;
 }
 
 .logoAccent {
-  color: var(--gold);
+  color: var(--text-main);
   pointer-events: none;
 }
 
@@ -79,7 +79,7 @@
   padding: var(--space-2) var(--space-3);
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--text-main);
   border-radius: var(--radius-md);
   transition: color var(--duration-fast), background var(--duration-fast);
   text-decoration: none;
@@ -88,7 +88,7 @@
 .navLink:hover,
 .navLink:focus {
   color: var(--royal);
-  background: var(--royal-50);
+  background: rgba(0, 0, 0, 0.05); /* Softer hover on yellow */
 }
 
 /* Right Section (Theme Toggle + Auth + Hamburger) */
@@ -133,16 +133,16 @@
   width: 40px;
   height: 40px;
   border-radius: var(--radius-full);
-  color: var(--white);
+  color: var(--text-main);
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--text-muted);
   transition: all var(--duration-fast);
   cursor: pointer;
 }
 
 .themeToggle:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--white);
+  background: rgba(0, 0, 0, 0.05);
+  border-color: var(--text-main);
   transform: scale(1.05);
 }
 
@@ -165,7 +165,7 @@
   display: block;
   height: 2px;
   width: 100%;
-  background: var(--white);
+  background: var(--text-main);
   border-radius: 2px;
   transition: all var(--duration-normal) var(--ease-smooth);
   transform-origin: center;

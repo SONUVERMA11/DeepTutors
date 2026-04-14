@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import EnquiryPopup from "@/components/layout/EnquiryPopup";
 
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 
@@ -57,6 +58,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
+          <EnquiryPopup />
           <main style={{ flex: 1 }}>{children}</main>
           <Footer />
         </ThemeProvider>
