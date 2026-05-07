@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./TestimonialsSection.module.css";
 
@@ -42,6 +42,16 @@ export default function TestimonialsSection() {
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
+
+  useEffect(() => {
+    if (isExpanded) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 3000);
+    
+    return () => clearInterval(interval);
+  }, [isExpanded]);
 
   const renderCard = (t: typeof testimonials[0], i: number) => (
     <div key={i} className={styles.testamonialCard}>

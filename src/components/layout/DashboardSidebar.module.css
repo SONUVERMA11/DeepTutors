@@ -53,7 +53,7 @@
 .userName {
   font-size: var(--text-sm);
   font-weight: 700;
-  color: var(--gray-900);
+  color: var(--text-main);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -88,8 +88,8 @@
 }
 
 .navLink:hover {
-  background: var(--gray-100);
-  color: var(--gray-900);
+  background: var(--bg-alt);
+  color: var(--text-main);
   transform: translateX(2px);
 }
 
@@ -133,7 +133,7 @@
   font-size: 10px;
   font-weight: 700;
   background: var(--royal);
-  color: var(--text-main);
+  color: white;
   line-height: 1.4;
 }
 

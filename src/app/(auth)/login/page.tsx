@@ -31,14 +31,10 @@ export default function LoginPage() {
   const handleGoogleLogin = async () => {
     setError(null);
     setLoading(true);
-    try {
-      const result = await signInWithGoogle();
-      if (result?.error) {
-        setError(result.error);
-        setLoading(false);
-      }
-    } catch {
-      // redirect throws on success
+    const result = await signInWithGoogle();
+    if (result?.error) {
+      setError(result.error);
+      setLoading(false);
     }
   };
 

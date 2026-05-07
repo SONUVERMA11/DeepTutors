@@ -51,14 +51,10 @@ export default function StudentRegisterPage() {
   const handleGoogleSignUp = async () => {
     setError(null);
     setLoading(true);
-    try {
-      const result = await signInWithGoogle();
-      if (result?.error) {
-        setError(result.error);
-        setLoading(false);
-      }
-    } catch {
-      // redirect throws on success
+    const result = await signInWithGoogle("student");
+    if (result?.error) {
+      setError(result.error);
+      setLoading(false);
     }
   };
 
@@ -163,23 +159,29 @@ export default function StudentRegisterPage() {
                 onChange={(e) => setFormData({ ...formData, curriculum: e.target.value })}
               >
                 <option value="">Select Board</option>
-                {region === "india" ? (
-                  <>
-                    <option value="cbse">CBSE</option>
-                    <option value="icse">ICSE</option>
-                    <option value="state">State Board</option>
-                    <option value="jee">JEE Prep</option>
-                    <option value="neet">NEET Prep</option>
-                  </>
-                ) : (
-                  <>
-                    <option value="ib">IB Programme</option>
-                    <option value="igcse">Cambridge IGCSE / A-Levels</option>
-                    <option value="sat">SAT Prep</option>
-                    <option value="aps">AP Prep</option>
-                    <option value="uk">National Curriculum (UK)</option>
-                  </>
-                )}
+                <optgroup label="Indian National Boards">
+                  <option value="cbse">CBSE</option>
+                  <option value="icse">ICSE</option>
+                </optgroup>
+                <optgroup label="Indian State Boards">
+                  <option value="state-up">UP Board</option>
+                  <option value="state-mp">MP Board</option>
+                  <option value="state-mh">Maharashtra Board</option>
+                  <option value="state-rj">Rajasthan Board</option>
+                  <option value="state-bh">Bihar Board</option>
+                  <option value="state-other">Other State Board</option>
+                </optgroup>
+                <optgroup label="Test Prep">
+                  <option value="jee">JEE Prep</option>
+                  <option value="neet">NEET Prep</option>
+                </optgroup>
+                <optgroup label="International Curriculums">
+                  <option value="ib">IB Programme</option>
+                  <option value="igcse">Cambridge IGCSE / A-Levels</option>
+                  <option value="sat">SAT Prep</option>
+                  <option value="aps">AP Prep</option>
+                  <option value="uk">National Curriculum (UK)</option>
+                </optgroup>
               </select>
             </div>
             <div className="input-group" style={{ marginBottom: "1rem" }}>

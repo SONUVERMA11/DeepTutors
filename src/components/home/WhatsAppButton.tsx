@@ -5,7 +5,7 @@ import styles from "./WhatsAppButton.module.css";
 
 export default function WhatsAppButton() {
   const [tooltip, setTooltip] = useState(false);
-  const phoneNumber = "918069409597"; // Placeholder — update with actual number
+  const phoneNumber = "917669910932";
 
   return (
     <a

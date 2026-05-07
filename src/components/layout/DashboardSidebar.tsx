@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { signOut } from "@/app/(auth)/actions";
 import styles from "./DashboardSidebar.module.css";
 
 export interface NavItem {
@@ -83,7 +84,7 @@ export default function DashboardSidebar({
 
         {/* Footer */}
         <div className={styles.sidebarFooter}>
-          <button className={styles.logoutBtn}>
+          <button className={styles.logoutBtn} onClick={() => signOut()}>
             <span className={styles.navIcon}>🚪</span>
             <span>Log Out</span>
           </button>

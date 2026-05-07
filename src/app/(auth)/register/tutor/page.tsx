@@ -80,14 +80,10 @@ export default function TutorRegisterPage() {
   const handleGoogleSignUp = async () => {
     setError(null);
     setLoading(true);
-    try {
-      const result = await signInWithGoogle();
-      if (result?.error) {
-        setError(result.error);
-        setLoading(false);
-      }
-    } catch {
-      // redirect throws on success
+    const result = await signInWithGoogle("tutor");
+    if (result?.error) {
+      setError(result.error);
+      setLoading(false);
     }
   };
 

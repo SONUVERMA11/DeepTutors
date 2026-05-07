@@ -1,12 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "How It Works — 4 Steps to Your Perfect Tutor",
-  description:
-    "Register free, get admin-matched with a verified tutor, enjoy 3 free demo classes, then start learning. Zero cost to parents, ever.",
-};
 
 const steps = [
   {
@@ -84,6 +80,8 @@ const guarantees = [
 ];
 
 export default function HowItWorksPage() {
+  const [expandedStep, setExpandedStep] = useState<number | null>(null);
+
   return (
     <div className={styles.page}>
       <div className={styles.hero}>
@@ -114,34 +112,55 @@ export default function HowItWorksPage() {
 
       <div className={`container ${styles.contentSection}`}>
         <div className={styles.timeline}>
-          {steps.map((item, idx) => (
-            <div
-              key={idx}
-              className={`${styles.timelineItem} ${item.highlight ? styles.timelineHighlight : ""}`}
-            >
-              <div className={`${styles.timelineIcon} ${item.highlight ? styles.iconHighlight : ""}`}>
-                {item.icon}
-              </div>
-              <div className={`${styles.timelineContent} ${item.highlight ? styles.contentHighlight : ""}`}>
-                <span className={styles.stepLabel}>
-                  {item.step}
-                  {item.highlight && <span className={styles.freeTag}>FREE</span>}
-                </span>
-                <h3 className={styles.stepTitle}>{item.title}</h3>
-                <p className={styles.stepText}>{item.desc}</p>
-
-                {/* Mixing details grid */}
-                <div className={styles.detailsGrid}>
-                  {item.details.map((detail, j) => (
-                    <div key={j} className={styles.detailChip}>
-                      <span className={styles.detailEmoji}>{detail.emoji}</span>
-                      <span className={styles.detailText}>{detail.text}</span>
+          {steps.map((item, idx) => {
+            const isExpanded = expandedStep === idx;
+            return (
+              <div
+                key={idx}
+                className={`${styles.timelineItem} ${item.highlight ? styles.timelineHighlight : ""}`}
+              >
+                <div className={`${styles.timelineIcon} ${item.highlight ? styles.iconHighlight : ""}`}>
+                  {item.icon}
+                </div>
+                <div 
+                  className={`${styles.timelineContent} ${item.highlight ? styles.contentHighlight : ""} ${isExpanded ? styles.expandedCard : ""}`}
+                  onClick={() => setExpandedStep(isExpanded ? null : idx)}
+                >
+                  <div className={styles.stepHeader}>
+                    <div className={styles.stepHeaderMain}>
+                      <span className={styles.stepLabel}>
+                        {item.step}
+                        {item.highlight && <span className={styles.freeTag}>FREE</span>}
+                      </span>
+                      <h3 className={styles.stepTitle}>{item.title}</h3>
+                      
+                      {/* Mobile Expand Prompt */}
+                      <div className={`${styles.tapPrompt} ${isExpanded ? styles.tapPromptOpen : ""}`}>
+                        <span>{isExpanded ? "Close details" : "Tap to expand details"}</span>
+                        <svg className={styles.chevron} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                      </div>
                     </div>
-                  ))}
+                  </div>
+
+                  <div className={`${styles.stepBody} ${isExpanded ? styles.bodyExpanded : styles.bodyCollapsed}`}>
+                    <p className={styles.stepText}>{item.desc}</p>
+
+                    {/* Mixing details grid */}
+                    <div className={styles.detailsGrid}>
+                      {item.details.map((detail, j) => (
+                        <div key={j} className={styles.detailChip}>
+                          <span className={styles.detailEmoji}>{detail.emoji}</span>
+                          <span className={styles.detailText}>{detail.text}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Guarantees section */}
