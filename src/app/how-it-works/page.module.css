@@ -406,3 +406,86 @@
   position: relative;
   z-index: 1;
 }
+
+/* ── Accordion Styles (Mobile) ── */
+.stepHeader {
+  display: block;
+}
+
+.stepHeaderMain {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tapPrompt {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+  padding: 6px 14px;
+  background: rgba(56, 189, 248, 0.1);
+  color: #38BDF8;
+  border-radius: var(--radius-full);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s var(--ease-spring);
+}
+
+.tapPromptOpen {
+  background: transparent;
+  color: var(--text-muted);
+  padding-left: 0;
+}
+
+.chevron {
+  transition: transform 0.3s ease;
+}
+
+.tapPromptOpen .chevron {
+  transform: rotate(180deg);
+}
+
+.stepBody {
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+/* On mobile, collapse unless expanded */
+@media (max-width: 767px) {
+  .bodyCollapsed {
+    max-height: 0;
+    opacity: 0;
+  }
+  
+  .bodyExpanded {
+    max-height: 1500px;
+    opacity: 1;
+    margin-top: var(--space-4);
+  }
+
+  .timelineContent {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .expandedCard {
+    border-color: rgba(56, 189, 248, 0.4);
+    background: rgba(255, 255, 255, 0.02);
+  }
+}
+
+/* On desktop, always show body */
+@media (min-width: 768px) {
+  .tapPrompt {
+    display: none;
+  }
+  
+  .bodyCollapsed, .bodyExpanded {
+    max-height: none;
+    opacity: 1;
+    margin-top: 0;
+  }
+}

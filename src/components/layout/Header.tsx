@@ -3,16 +3,17 @@
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ThemeToggle } from "./ThemeToggle";
 import { createClient } from "@/utils/supabase/client";
 import styles from "./Header.module.css";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/enquiry", label: "Enquiry" },
   { href: "/how-it-works", label: "How It Works" },
   { href: "/pricing", label: "Pricing" },
   { href: "/about", label: "About" },
-  { href: "/enquiry", label: "Enquiry" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -89,6 +90,7 @@ export default function Header() {
       <div className={styles.inner}>
         {/* Logo */}
         <Link href="/" className={styles.logo} id="logo-link">
+          <Image src="/logo.png" alt="DeepTutors Logo" width={40} height={40} className={styles.logoImg} />
           <span className={styles.logoText}>
             Deep<span className={styles.logoAccent}>Tutors</span>
           </span>

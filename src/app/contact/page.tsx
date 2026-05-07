@@ -25,8 +25,8 @@ const infoCards: InfoCard[] = [
       <>
         For general inquiries and support:
         <br />
-        <a href="mailto:hello@deeptutors.com" className={styles.infoLink}>
-          hello@deeptutors.com
+        <a href="mailto:deeptutors.me@gmail.com" className={styles.infoLink}>
+          deeptutors.me@gmail.com
         </a>
       </>
     ),
@@ -43,8 +43,8 @@ const infoCards: InfoCard[] = [
       <>
         Quick help via WhatsApp:
         <br />
-        <a href="https://wa.me/919876543210" className={styles.infoLink}>
-          +91 98765 43210
+        <a href="https://wa.me/917669910932" className={styles.infoLink}>
+          +91 76699 10932
         </a>
       </>
     ),

@@ -79,6 +79,7 @@ const gridItems = [
 
 export default function FeaturesSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const gridRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -88,6 +89,26 @@ export default function FeaturesSection() {
     );
     if (sectionRef.current) obs.observe(sectionRef.current);
     return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
+    // Auto-scroll slider on mobile every 3 seconds
+    const interval = setInterval(() => {
+      if (gridRef.current && window.innerWidth < 768) {
+        const { scrollLeft, scrollWidth, clientWidth } = gridRef.current;
+        const maxScroll = scrollWidth - clientWidth;
+        
+        // If near the end, reset to start, else scroll one card's width
+        if (scrollLeft >= maxScroll - 10) {
+          gridRef.current.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          const scrollAmount = clientWidth * 0.85 + 16;
+          gridRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        }
+      }
+    }, 3000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const renderMiniUI = (id: string) => {
@@ -159,7 +180,7 @@ export default function FeaturesSection() {
           </p>
         </div>
 
-        <div className={styles.bentoGrid}>
+        <div className={styles.bentoGrid} ref={gridRef}>
           {gridItems.map((item, i) => (
             <div
               key={i}
