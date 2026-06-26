@@ -23,5 +23,6 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.1",
     "typescript": "^5"
-  }
+  },
+  "author": "SONU VERMA <snverma1020@gmail.com>"
 }
